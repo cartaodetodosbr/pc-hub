@@ -1,0 +1,131 @@
+/* ==========================================================================
+   P&C HUB — Responsividade
+   Breakpoints testados: desktop grande (>1440px), notebook (1024-1439px),
+   tablet (768-1023px), mobile (<768px)
+   ========================================================================== */
+
+/* ---- Notebook / desktop padrão (até 1439px): reduz respiro geral ---------- */
+@media (max-width: 1439px) {
+  .view { padding: var(--space-6); }
+  .app-header { padding: 0 var(--space-6); }
+}
+
+/* ---- Tablet (768-1023px): sidebar vira off-canvas, cards em 2 colunas ------ */
+@media (max-width: 1023px) {
+  .app-header__menu-toggle {
+    display: inline-flex;
+  }
+
+  .app-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+    padding-top: var(--stripe-height);
+  }
+
+  .app-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .quick-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .welcome-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .welcome-banner__mascot {
+    align-self: center;
+    width: 140px;
+    height: 140px;
+  }
+
+  .brand-partner span,
+  .brand-qia {
+    font-size: var(--fs-sm);
+  }
+}
+
+/* ---- Mobile (<768px) -------------------------------------------------------- */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .app-header {
+    padding: 0 var(--space-4);
+  }
+
+  .brand-signature__mark { font-size: var(--fs-lg); }
+  .brand-signature__tagline { display: none; }
+
+  .brand-partner img { height: 16px; }
+
+  .view { padding: var(--space-4); }
+
+  .quick-links {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-banner {
+    padding: var(--space-5);
+  }
+
+  .welcome-banner__title { font-size: var(--fs-xl); }
+
+  .flow-steps {
+    flex-wrap: wrap;
+    gap: var(--space-3) 0;
+  }
+
+  .flow-step {
+    flex: 1 1 40%;
+  }
+
+  .flow-step__connector {
+    display: none;
+  }
+
+  .flow-step__label { white-space: normal; }
+
+  .upload-zone {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .file-card {
+    flex-wrap: wrap;
+  }
+
+  .file-card__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .result-summary {
+    justify-content: flex-start;
+  }
+
+  .step-actions {
+    flex-direction: column-reverse;
+  }
+
+  .step-actions .btn {
+    width: 100%;
+  }
+
+  /* Botões com área de toque confortável no mobile */
+  .btn {
+    padding: 13px 20px;
+  }
+
+  .app-sidebar {
+    width: min(84vw, 320px);
+  }
+}

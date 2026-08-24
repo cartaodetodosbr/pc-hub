@@ -1,0 +1,175 @@
+/* ==========================================================================
+   P&C HUB — Layout geral (shell da aplicação)
+   ========================================================================== */
+
+/* ---- Faixas coloridas — assinatura visual de P&C ---------------------- */
+.pc-stripe {
+  display: flex;
+  width: 100%;
+  height: var(--stripe-height);
+  flex-shrink: 0;
+}
+
+.pc-stripe span {
+  flex: 1 1 0;
+}
+
+.pc-stripe span:nth-child(1) { background: var(--color-orange); }
+.pc-stripe span:nth-child(2) { background: var(--color-purple); }
+.pc-stripe span:nth-child(3) { background: var(--color-pink); }
+.pc-stripe span:nth-child(4) { background: var(--color-teal); }
+
+/* ---- Shell -------------------------------------------------------------- */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ---- Header --------------------------------------------------------------- */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: var(--header-height);
+  padding: 0 var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.app-header__start {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.app-header__menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+}
+
+.app-header__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-shrink: 0;
+}
+
+.brand-partner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0.85;
+}
+
+.brand-partner img {
+  height: 20px;
+  width: auto;
+}
+
+.brand-qia {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: var(--fs-md);
+  color: var(--color-purple);
+  letter-spacing: 0.02em;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--color-border);
+}
+
+/* ---- Sidebar ---------------------------------------------------------------- */
+.app-sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  transition: transform var(--transition-base), width var(--transition-base);
+}
+
+.app-sidebar__nav {
+  padding: var(--space-5) var(--space-4);
+}
+
+.app-sidebar__section-label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin: var(--space-5) var(--space-3) var(--space-2);
+}
+
+.app-sidebar__section-label:first-child {
+  margin-top: 0;
+}
+
+.app-sidebar__divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-4) var(--space-3);
+}
+
+.app-sidebar__footer {
+  padding: var(--space-4);
+}
+
+/* ---- Conteúdo principal ------------------------------------------------------- */
+.app-main {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  background: var(--color-bg);
+}
+
+.view {
+  display: none;
+  padding: var(--space-8);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.view.is-active {
+  display: block;
+  animation: view-fade 220ms ease;
+}
+
+@keyframes view-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Overlay do menu mobile --------------------------------------------------- */
+.app-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 20, 30, 0.4);
+  z-index: 40;
+}
+
+.app-sidebar-overlay.is-visible {
+  display: block;
+}

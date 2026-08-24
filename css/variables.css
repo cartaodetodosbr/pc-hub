@@ -1,0 +1,132 @@
+/* ==========================================================================
+   P&C HUB — Design tokens
+   Pessoas, Cultura & Facilidades — TODOS Empreendimentos
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   TIPOGRAFIA — PANTON
+   A fonte oficial dos materiais de Pessoas & Cultura é a família Panton.
+   Os arquivos ainda não foram fornecidos. Quando estiverem disponíveis:
+     1. Salve os arquivos (.woff2 / .woff) dentro de /assets/fonts/
+        Ex.: /assets/fonts/Panton-Regular.woff2
+             /assets/fonts/Panton-Medium.woff2
+             /assets/fonts/Panton-Bold.woff2
+             /assets/fonts/Panton-ExtraBold.woff2
+     2. Descomente o bloco @font-face abaixo e ajuste os nomes de arquivo.
+     3. Nada mais precisa mudar — as variáveis --font-heading/--font-body
+        já referenciam "Panton" com fallback para Poppins.
+   -------------------------------------------------------------------------- */
+
+/*
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-Regular.woff2") format("woff2"),
+       url("../assets/fonts/Panton-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-Medium.woff2") format("woff2"),
+       url("../assets/fonts/Panton-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-Bold.woff2") format("woff2"),
+       url("../assets/fonts/Panton-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-ExtraBold.woff2") format("woff2"),
+       url("../assets/fonts/Panton-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+:root {
+  /* ---- Cores da identidade P&C -------------------------------------- */
+  --color-teal: #0e9b7e;
+  --color-teal-dark: #0b7c65;
+  --color-teal-light: #e3f5f0;
+
+  --color-orange: #f7941d;
+  --color-orange-light: #fef1de;
+
+  --color-purple: #6e3fa3;
+  --color-purple-light: #efe6f7;
+
+  --color-pink: #e31c5f;
+  --color-pink-light: #fce6ed;
+
+  /* ---- Neutros --------------------------------------------------------- */
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f7f8fa;
+  --color-border: #e7e9ec;
+  --color-border-strong: #d7dadf;
+
+  --color-text-primary: #1f2430;
+  --color-text-secondary: #5b6270;
+  --color-text-muted: #9aa1ac;
+  --color-text-inverse: #ffffff;
+
+  --color-success: #0e9b7e;
+  --color-success-bg: #e3f5f0;
+  --color-error: #d92d20;
+  --color-error-bg: #fdecec;
+  --color-warning: #f7941d;
+  --color-warning-bg: #fef1de;
+
+  /* ---- Tipografia ------------------------------------------------------ */
+  --font-heading: "Panton", "Poppins", "Segoe UI", sans-serif;
+  --font-body: "Panton", "Poppins", "Segoe UI", sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+
+  /* ---- Espaçamento ------------------------------------------------------ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---- Raios e sombras (sutis, sem exagero) ----------------------------- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --shadow-md: 0 4px 14px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 12px 28px rgba(16, 24, 40, 0.08);
+
+  /* ---- Layout ------------------------------------------------------------ */
+  --sidebar-width: 264px;
+  --sidebar-width-collapsed: 0px;
+  --header-height: 76px;
+  --stripe-height: 6px;
+  --content-max-width: 1280px;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 220ms ease;
+}
