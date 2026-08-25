@@ -1,46 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P&amp;C Hub — Pessoas, Cultura &amp; Facilidades</title>
-<meta name="description" content="Portal de ferramentas e facilidades do time de Pessoas &amp; Cultura da TODOS Empreendimentos.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <title>P&amp;C Hub — Pessoas, Cultura &amp; Facilidades</title>
+  <meta name="description" content="Portal de ferramentas e facilidades do time de Pessoas &amp; Cultura da TODOS Empreendimentos.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
 
 <!-- ==========================================================================
-     Sprite de ícones (SVG de linha, inline — sem dependência externa)
+     Sprite de ícones
      ========================================================================== -->
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <defs>
+
     <symbol id="icon-home" viewBox="0 0 24 24">
       <path d="M4 11 12 4l8 7"/>
-      <path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/>
+      <path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 1-1-1v-9"/>
     </symbol>
+
     <symbol id="icon-bar-chart" viewBox="0 0 24 24">
-      <path d="M5 20V10"/><path d="M12 20V4"/><path d="M19 20v-7"/>
+      <path d="M5 20V10"/>
+      <path d="M12 20V4"/>
+      <path d="M19 20v-7"/>
     </symbol>
+
     <symbol id="icon-folder" viewBox="0 0 24 24">
       <path d="M4 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z"/>
     </symbol>
+
     <symbol id="icon-tool" viewBox="0 0 24 24">
       <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.7-2.7z"/>
     </symbol>
+
     <symbol id="icon-clock" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>
+      <circle cx="12" cy="12" r="8"/>
+      <path d="M12 8v4l3 2"/>
     </symbol>
+
     <symbol id="icon-calculator" viewBox="0 0 24 24">
       <rect x="6" y="3" width="12" height="18" rx="2"/>
       <path d="M9 7h6"/>
@@ -53,447 +65,1199 @@
       <circle cx="9" cy="18" r="0.6" fill="currentColor" stroke="none"/>
       <circle cx="12" cy="18" r="0.6" fill="currentColor" stroke="none"/>
     </symbol>
+
     <symbol id="icon-file-text" viewBox="0 0 24 24">
       <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
       <path d="M14 3v5h5"/>
       <path d="M9 13h6M9 17h6"/>
     </symbol>
+
     <symbol id="icon-book" viewBox="0 0 24 24">
       <path d="M6 4h9a2 2 0 0 1 2 2v14l-3.5-2-3.5 2-3.5-2-3.5 2V6a2 2 0 0 1 2-2z"/>
     </symbol>
+
     <symbol id="icon-sparkles" viewBox="0 0 24 24">
       <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/>
       <path d="M19 15l.7 2.1 2.1.7-2.1.7-.7 2.1-.7-2.1-2.1-.7 2.1-.7.7-2.1z"/>
     </symbol>
+
     <symbol id="icon-help-circle" viewBox="0 0 24 24">
       <circle cx="12" cy="12" r="9"/>
       <path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.9.4-1.4 1-1.4 1.9"/>
       <circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/>
     </symbol>
+
     <symbol id="icon-message-circle" viewBox="0 0 24 24">
       <path d="M4 12a8 8 0 1 1 3.5 6.6L4 20l1.2-3.6A7.96 7.96 0 0 1 4 12z"/>
     </symbol>
+
     <symbol id="icon-chevron-right" viewBox="0 0 24 24">
       <path d="M9 6l6 6-6 6"/>
     </symbol>
+
     <symbol id="icon-menu" viewBox="0 0 24 24">
       <path d="M4 6h16M4 12h16M4 18h16"/>
     </symbol>
+
     <symbol id="icon-close" viewBox="0 0 24 24">
-      <path d="M6 6l12 12M18 6L6 18"/>
+      <path d="M6 6l12 12M18 6 6 18"/>
     </symbol>
+
     <symbol id="icon-cloud-upload" viewBox="0 0 24 24">
       <path d="M7 18a4 4 0 0 1-.6-7.96A5 5 0 0 1 16.9 8.1 4.5 4.5 0 0 1 16.5 18H7z"/>
       <path d="M12 12.5v6"/>
       <path d="M9.3 15 12 12.3 14.7 15"/>
     </symbol>
+
     <symbol id="icon-shield-check" viewBox="0 0 24 24">
       <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/>
       <path d="M9 12l2 2 4-4"/>
     </symbol>
+
     <symbol id="icon-check-circle" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/>
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M8 12.5l2.5 2.5L16 9"/>
     </symbol>
+
     <symbol id="icon-alert-triangle" viewBox="0 0 24 24">
-      <path d="M12 4 3 20h18L12 4z"/><path d="M12 10v4"/>
+      <path d="M12 4 3 20h18L12 4z"/>
+      <path d="M12 10v4"/>
       <circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/>
     </symbol>
+
     <symbol id="icon-download" viewBox="0 0 24 24">
-      <path d="M12 4v11"/><path d="M8 11l4 4 4-4"/><path d="M5 19h14"/>
+      <path d="M12 4v11"/>
+      <path d="M8 11l4 4 4-4"/>
+      <path d="M5 19h14"/>
     </symbol>
+
     <symbol id="icon-trash" viewBox="0 0 24 24">
       <path d="M5 7h14"/>
       <path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
       <path d="M7 7l1 12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1l1-12"/>
     </symbol>
+
     <symbol id="icon-refresh" viewBox="0 0 24 24">
       <path d="M4 12a8 8 0 0 1 14-5.3"/>
       <path d="M20 12a8 8 0 0 1-14 5.3"/>
       <path d="M18 3v4h-4"/>
       <path d="M6 21v-4h4"/>
     </symbol>
+
     <symbol id="icon-arrow-right" viewBox="0 0 24 24">
-      <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+      <path d="M5 12h14"/>
+      <path d="M13 6l6 6-6 6"/>
     </symbol>
-    <symbol id="icon-owl" viewBox="0 0 100 100">
-      <path d="M20 30 L32 8 L41 27 Z" fill="#0e9b7e" stroke="none"/>
-      <path d="M80 30 L68 8 L59 27 Z" fill="#0e9b7e" stroke="none"/>
-      <circle cx="50" cy="56" r="38" fill="#0e9b7e" stroke="none"/>
-      <circle cx="36" cy="52" r="16" fill="#ffffff" stroke="none"/>
-      <circle cx="64" cy="52" r="16" fill="#ffffff" stroke="none"/>
-      <circle cx="36" cy="52" r="7" fill="#1f2430" stroke="none"/>
-      <circle cx="64" cy="52" r="7" fill="#1f2430" stroke="none"/>
-      <circle cx="33" cy="49" r="2" fill="#ffffff" stroke="none"/>
-      <circle cx="61" cy="49" r="2" fill="#ffffff" stroke="none"/>
-      <path d="M46 62 L50 70 L54 62 Z" fill="#f7941d" stroke="none"/>
-      <path d="M30 82 Q50 96 70 82 Q66 90 50 92 Q34 90 30 82 Z" fill="#ffffff" stroke="none" opacity="0.3"/>
-    </symbol>
+
   </defs>
 </svg>
 
 <div class="app-shell">
 
-  <div class="pc-stripe" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="pc-stripe" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
   <header class="app-header">
+
     <div class="app-header__start">
-      <button type="button" class="app-header__menu-toggle" id="sidebar-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="app-sidebar">
-        <svg class="icon"><use href="#icon-menu"></use></svg>
+
+      <button
+        type="button"
+        class="app-header__menu-toggle"
+        id="sidebar-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="app-sidebar"
+      >
+        <svg class="icon">
+          <use href="#icon-menu"></use>
+        </svg>
       </button>
-      <a href="#inicio" class="brand-signature" data-nav="inicio" aria-label="P&amp;C Hub — ir para o início">
-        <span class="brand-signature__mark"><span class="c-pc">P&amp;C</span> <span class="c-h">H</span><span class="c-u">U</span><span class="c-b">B</span></span>
-        <span class="brand-signature__tagline">Pessoas, Cultura &amp; Facilidades</span>
+
+      <a
+        href="#inicio"
+        class="brand-signature"
+        data-nav="inicio"
+        aria-label="P&amp;C Hub — ir para o início"
+      >
+        <span class="brand-signature__mark">
+          <span class="c-pc">P&amp;C</span>
+          <span class="c-h">H</span>
+          <span class="c-u">U</span>
+          <span class="c-b">B</span>
+        </span>
+
+        <span class="brand-signature__tagline">
+          Pessoas, Cultura &amp; Facilidades
+        </span>
       </a>
+
     </div>
+
     <div class="app-header__end">
+
       <div class="brand-partner">
-        <img src="assets/logos/todos-empreendimentos.png" alt="TODOS Empreendimentos">
+        <img
+          src="assets/logos/todos-empreendimentos.png"
+          alt="TODOS Empreendimentos"
+        >
       </div>
+
       <div class="brand-divider" aria-hidden="true"></div>
-      <span class="brand-qia">P&C</span>
+
+      <span class="brand-qia">P&amp;C</span>
+
     </div>
+
   </header>
 
   <div class="app-body">
 
-    <div class="app-sidebar-overlay" id="sidebar-overlay"></div>
+    <div
+      class="app-sidebar-overlay"
+      id="sidebar-overlay"
+    ></div>
 
-    <aside class="app-sidebar" id="app-sidebar">
-      <nav class="app-sidebar__nav" aria-label="Navegação principal">
+    <aside
+      class="app-sidebar"
+      id="app-sidebar"
+    >
 
-        <a href="#inicio" class="nav-item" data-nav="inicio">
-          <svg class="icon"><use href="#icon-home"></use></svg>
+      <nav
+        class="app-sidebar__nav"
+        aria-label="Navegação principal"
+      >
+
+        <a
+          href="#inicio"
+          class="nav-item"
+          data-nav="inicio"
+        >
+          <svg class="icon">
+            <use href="#icon-home"></use>
+          </svg>
           Início
         </a>
 
-        <p class="app-sidebar__section-label">Ferramentas</p>
+        <p class="app-sidebar__section-label">
+          Ferramentas
+        </p>
 
-        <a href="#indicadores" class="nav-item" data-nav="indicadores">
-          <svg class="icon"><use href="#icon-bar-chart"></use></svg>
+        <a
+          href="#indicadores"
+          class="nav-item"
+          data-nav="indicadores"
+        >
+          <svg class="icon">
+            <use href="#icon-bar-chart"></use>
+          </svg>
+
           Indicadores
-          <span class="nav-item__badge">Em breve</span>
+
+          <span class="nav-item__badge">
+            Em breve
+          </span>
         </a>
 
-        <a href="#documentos" class="nav-item" data-nav="documentos">
-          <svg class="icon"><use href="#icon-folder"></use></svg>
+        <a
+          href="#documentos"
+          class="nav-item"
+          data-nav="documentos"
+        >
+          <svg class="icon">
+            <use href="#icon-folder"></use>
+          </svg>
+
           Documentos
-          <span class="nav-item__badge">Em breve</span>
+
+          <span class="nav-item__badge">
+            Em breve
+          </span>
         </a>
 
-        <div class="nav-group is-open" id="nav-group-ferramentas">
-          <button type="button" class="nav-item nav-group__trigger" id="nav-group-ferramentas-trigger" aria-expanded="true" aria-controls="nav-group-ferramentas-children">
-            <svg class="icon"><use href="#icon-tool"></use></svg>
+        <div
+          class="nav-group is-open"
+          id="nav-group-ferramentas"
+        >
+
+          <button
+            type="button"
+            class="nav-item nav-group__trigger"
+            id="nav-group-ferramentas-trigger"
+            aria-expanded="true"
+            aria-controls="nav-group-ferramentas-children"
+          >
+
+            <svg class="icon">
+              <use href="#icon-tool"></use>
+            </svg>
+
             Ferramentas
-            <svg class="icon icon--sm icon--chevron"><use href="#icon-chevron-right"></use></svg>
+
+            <svg class="icon icon--sm icon--chevron">
+              <use href="#icon-chevron-right"></use>
+            </svg>
+
           </button>
-          <div class="nav-group__children" id="nav-group-ferramentas-children">
-            <a href="#ferramentas/banco-horas" class="nav-item" data-nav="ferramentas/banco-horas">
-              <svg class="icon"><use href="#icon-clock"></use></svg>
+
+          <div
+            class="nav-group__children"
+            id="nav-group-ferramentas-children"
+          >
+
+            <a
+              href="#ferramentas/banco-horas"
+              class="nav-item"
+              data-nav="ferramentas/banco-horas"
+            >
+              <svg class="icon">
+                <use href="#icon-clock"></use>
+              </svg>
               Banco de Horas
             </a>
-            <a href="#ferramentas/calculadoras" class="nav-item" data-nav="ferramentas/calculadoras">
-              <svg class="icon"><use href="#icon-calculator"></use></svg>
+
+            <a
+              href="#ferramentas/calculadoras"
+              class="nav-item"
+              data-nav="ferramentas/calculadoras"
+            >
+              <svg class="icon">
+                <use href="#icon-calculator"></use>
+              </svg>
+
               Calculadoras
-              <span class="nav-item__badge">Em breve</span>
+
+              <span class="nav-item__badge">
+                Em breve
+              </span>
             </a>
-            <a href="#ferramentas/modelos" class="nav-item" data-nav="ferramentas/modelos">
-              <svg class="icon"><use href="#icon-file-text"></use></svg>
+
+            <a
+              href="#ferramentas/modelos"
+              class="nav-item"
+              data-nav="ferramentas/modelos"
+            >
+              <svg class="icon">
+                <use href="#icon-file-text"></use>
+              </svg>
+
               Modelos e Templates
-              <span class="nav-item__badge">Em breve</span>
+
+              <span class="nav-item__badge">
+                Em breve
+              </span>
             </a>
-            <a href="#ferramentas/guia-rapido" class="nav-item" data-nav="ferramentas/guia-rapido">
-              <svg class="icon"><use href="#icon-book"></use></svg>
+
+            <a
+              href="#ferramentas/guia-rapido"
+              class="nav-item"
+              data-nav="ferramentas/guia-rapido"
+            >
+              <svg class="icon">
+                <use href="#icon-book"></use>
+              </svg>
+
               Guia Rápido
-              <span class="nav-item__badge">Em breve</span>
+
+              <span class="nav-item__badge">
+                Em breve
+              </span>
             </a>
+
           </div>
+
         </div>
 
-        <a href="#automacoes" class="nav-item" data-nav="automacoes">
-          <svg class="icon"><use href="#icon-sparkles"></use></svg>
+        <a
+          href="#automacoes"
+          class="nav-item"
+          data-nav="automacoes"
+        >
+          <svg class="icon">
+            <use href="#icon-sparkles"></use>
+          </svg>
+
           Automações
-          <span class="nav-item__badge">Em breve</span>
+
+          <span class="nav-item__badge">
+            Em breve
+          </span>
         </a>
 
         <div class="app-sidebar__divider"></div>
-        <p class="app-sidebar__section-label">Suporte</p>
 
-        <a href="#ajuda" class="nav-item" data-nav="ajuda">
-          <svg class="icon"><use href="#icon-help-circle"></use></svg>
+        <p class="app-sidebar__section-label">
+          Suporte
+        </p>
+
+        <a
+          href="#ajuda"
+          class="nav-item"
+          data-nav="ajuda"
+        >
+          <svg class="icon">
+            <use href="#icon-help-circle"></use>
+          </svg>
           Ajuda
         </a>
-        <a href="#fale-com-time" class="nav-item" data-nav="fale-com-time">
-          <svg class="icon"><use href="#icon-message-circle"></use></svg>
+
+        <a
+          href="#fale-com-time"
+          class="nav-item"
+          data-nav="fale-com-time"
+        >
+          <svg class="icon">
+            <use href="#icon-message-circle"></use>
+          </svg>
           Fale com o time P&amp;C
         </a>
+
       </nav>
 
+      <!-- MASCOTE DO MENU LATERAL -->
       <div class="app-sidebar__footer">
+
         <div class="mascot-card">
-          <svg class="mascot-card__icon" aria-hidden="true"><use href="#icon-owl"></use></svg>
-          <p class="mascot-card__title">P&amp;C Hub</p>
-          <p class="mascot-card__text">Facilitamos processos para você focar no que mais importa: <strong>pessoas</strong>.</p>
+
+          <img
+            src="assets/mascot/favicon.svg"
+            class="mascot-card__icon"
+            alt="Mascote Pessoas e Cultura"
+          >
+
+          <p class="mascot-card__title">
+            P&amp;C Hub
+          </p>
+
+          <p class="mascot-card__text">
+            Facilitamos processos para você focar no que mais importa:
+            <strong>pessoas</strong>.
+          </p>
+
         </div>
+
       </div>
+
     </aside>
 
-    <main class="app-main" id="app-main">
+    <main
+      class="app-main"
+      id="app-main"
+    >
 
       <!-- ================= HOME ================= -->
-      <section id="view-inicio" class="view is-active" aria-labelledby="inicio-heading">
+
+      <section
+        id="view-inicio"
+        class="view is-active"
+        aria-labelledby="inicio-heading"
+      >
 
         <div class="welcome-banner">
+
           <div class="welcome-banner__content">
-            <p class="welcome-banner__eyebrow">Olá! 👋</p>
-            <h1 class="welcome-banner__title" id="inicio-heading">Como podemos facilitar o seu dia hoje?</h1>
-            <p class="welcome-banner__text">Aqui você encontra ferramentas, indicadores e conteúdos que ajudam o time de Pessoas &amp; Cultura a tornar processos mais simples.</p>
+
+            <p class="welcome-banner__eyebrow">
+              Olá! 👋
+            </p>
+
+            <h1
+              class="welcome-banner__title"
+              id="inicio-heading"
+            >
+              Como podemos facilitar o seu dia hoje?
+            </h1>
+
+            <p class="welcome-banner__text">
+              Aqui você encontra ferramentas, indicadores e conteúdos que ajudam
+              o time de Pessoas &amp; Cultura a tornar processos mais simples.
+            </p>
+
           </div>
-         <div class="welcome-banner__mascot">
-           <img src="assets/mascot/favicon.svg" alt="Mascote Pessoas e Cultura">
+
+          <!-- MASCOTE DO BANNER -->
+          <div class="welcome-banner__mascot">
+
+            <img
+              src="assets/mascot/favicon.svg"
+              alt="Mascote Pessoas e Cultura"
+            >
+
           </div>
+
+        </div>
 
         <div class="section-heading">
           <h2>Acesse rapidamente</h2>
         </div>
 
         <div class="quick-links">
-          <a href="#ferramentas/banco-horas" class="quick-card quick-card--teal" data-nav="ferramentas/banco-horas">
-            <span class="quick-card__icon"><svg class="icon"><use href="#icon-clock"></use></svg></span>
-            <h3 class="quick-card__title">Banco de Horas</h3>
-            <p class="quick-card__text">Converta seu arquivo CSV para o formato utilizado no Power BI.</p>
+
+          <a
+            href="#ferramentas/banco-horas"
+            class="quick-card quick-card--teal"
+            data-nav="ferramentas/banco-horas"
+          >
+
+            <span class="quick-card__icon">
+              <svg class="icon">
+                <use href="#icon-clock"></use>
+              </svg>
+            </span>
+
+            <h3 class="quick-card__title">
+              Banco de Horas
+            </h3>
+
+            <p class="quick-card__text">
+              Converta seu arquivo CSV para o formato utilizado no Power BI.
+            </p>
+
             <div class="quick-card__footer">
-              <span class="quick-card__link">Abrir <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
-              <span class="badge badge--live">Disponível</span>
+
+              <span class="quick-card__link">
+                Abrir
+
+                <svg class="icon icon--sm">
+                  <use href="#icon-arrow-right"></use>
+                </svg>
+
+              </span>
+
+              <span class="badge badge--live">
+                Disponível
+              </span>
+
             </div>
+
           </a>
 
-          <a href="#indicadores" class="quick-card quick-card--orange" data-nav="indicadores">
-            <span class="quick-card__icon"><svg class="icon"><use href="#icon-bar-chart"></use></svg></span>
-            <h3 class="quick-card__title">Indicadores</h3>
-            <p class="quick-card__text">Acesse dashboards e indicadores estratégicos de Pessoas &amp; Cultura.</p>
+          <a
+            href="#indicadores"
+            class="quick-card quick-card--orange"
+            data-nav="indicadores"
+          >
+
+            <span class="quick-card__icon">
+              <svg class="icon">
+                <use href="#icon-bar-chart"></use>
+              </svg>
+            </span>
+
+            <h3 class="quick-card__title">
+              Indicadores
+            </h3>
+
+            <p class="quick-card__text">
+              Acesse dashboards e indicadores estratégicos de Pessoas &amp; Cultura.
+            </p>
+
             <div class="quick-card__footer">
-              <span class="quick-card__link">Ver mais <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
-              <span class="badge badge--soon">Em breve</span>
+
+              <span class="quick-card__link">
+
+                Ver mais
+
+                <svg class="icon icon--sm">
+                  <use href="#icon-arrow-right"></use>
+                </svg>
+
+              </span>
+
+              <span class="badge badge--soon">
+                Em breve
+              </span>
+
             </div>
+
           </a>
 
-          <a href="#documentos" class="quick-card quick-card--purple" data-nav="documentos">
-            <span class="quick-card__icon"><svg class="icon"><use href="#icon-folder"></use></svg></span>
-            <h3 class="quick-card__title">Documentos</h3>
-            <p class="quick-card__text">Políticas, materiais e documentos importantes do time.</p>
+          <a
+            href="#documentos"
+            class="quick-card quick-card--purple"
+            data-nav="documentos"
+          >
+
+            <span class="quick-card__icon">
+              <svg class="icon">
+                <use href="#icon-folder"></use>
+              </svg>
+            </span>
+
+            <h3 class="quick-card__title">
+              Documentos
+            </h3>
+
+            <p class="quick-card__text">
+              Políticas, materiais e documentos importantes do time.
+            </p>
+
             <div class="quick-card__footer">
-              <span class="quick-card__link">Ver mais <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
-              <span class="badge badge--soon">Em breve</span>
+
+              <span class="quick-card__link">
+
+                Ver mais
+
+                <svg class="icon icon--sm">
+                  <use href="#icon-arrow-right"></use>
+                </svg>
+
+              </span>
+
+              <span class="badge badge--soon">
+                Em breve
+              </span>
+
             </div>
+
           </a>
 
-          <a href="#ferramentas/banco-horas" class="quick-card quick-card--pink" data-nav="ferramentas/banco-horas">
-            <span class="quick-card__icon"><svg class="icon"><use href="#icon-tool"></use></svg></span>
-            <h3 class="quick-card__title">Ferramentas</h3>
-            <p class="quick-card__text">Acesse utilitários e facilidades para o dia a dia de P&amp;C.</p>
+          <a
+            href="#ferramentas/banco-horas"
+            class="quick-card quick-card--pink"
+            data-nav="ferramentas/banco-horas"
+          >
+
+            <span class="quick-card__icon">
+              <svg class="icon">
+                <use href="#icon-tool"></use>
+              </svg>
+            </span>
+
+            <h3 class="quick-card__title">
+              Ferramentas
+            </h3>
+
+            <p class="quick-card__text">
+              Acesse utilitários e facilidades para o dia a dia de P&amp;C.
+            </p>
+
             <div class="quick-card__footer">
-              <span class="quick-card__link">Abrir <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
-              <span class="badge badge--live">Disponível</span>
+
+              <span class="quick-card__link">
+
+                Abrir
+
+                <svg class="icon icon--sm">
+                  <use href="#icon-arrow-right"></use>
+                </svg>
+
+              </span>
+
+              <span class="badge badge--live">
+                Disponível
+              </span>
+
             </div>
+
           </a>
 
-          <a href="#automacoes" class="quick-card quick-card--teal" data-nav="automacoes">
-            <span class="quick-card__icon"><svg class="icon"><use href="#icon-sparkles"></use></svg></span>
-            <h3 class="quick-card__title">Automações</h3>
-            <p class="quick-card__text">Soluções para simplificar processos do dia a dia.</p>
+          <a
+            href="#automacoes"
+            class="quick-card quick-card--teal"
+            data-nav="automacoes"
+          >
+
+            <span class="quick-card__icon">
+              <svg class="icon">
+                <use href="#icon-sparkles"></use>
+              </svg>
+            </span>
+
+            <h3 class="quick-card__title">
+              Automações
+            </h3>
+
+            <p class="quick-card__text">
+              Soluções para simplificar processos do dia a dia.
+            </p>
+
             <div class="quick-card__footer">
-              <span class="quick-card__link">Ver mais <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
-              <span class="badge badge--soon">Em breve</span>
+
+              <span class="quick-card__link">
+
+                Ver mais
+
+                <svg class="icon icon--sm">
+                  <use href="#icon-arrow-right"></use>
+                </svg>
+
+              </span>
+
+              <span class="badge badge--soon">
+                Em breve
+              </span>
+
             </div>
+
           </a>
+
         </div>
 
         <div class="feature-panel">
+
           <div class="feature-panel__header">
+
             <div>
-              <p class="feature-panel__eyebrow">Ferramenta em destaque</p>
-              <h2>Conversor de Banco de Horas</h2>
-              <p class="text-secondary" style="margin:0;">Converta seu arquivo CSV para o formato correto do Power BI em poucos cliques.</p>
+
+              <p class="feature-panel__eyebrow">
+                Ferramenta em destaque
+              </p>
+
+              <h2>
+                Conversor de Banco de Horas
+              </h2>
+
+              <p
+                class="text-secondary"
+                style="margin:0;"
+              >
+                Converta seu arquivo CSV para o formato correto do Power BI em poucos cliques.
+              </p>
+
             </div>
-            <a href="#ferramentas/banco-horas" class="btn btn--primary" data-nav="ferramentas/banco-horas">Abrir ferramenta</a>
+
+            <a
+              href="#ferramentas/banco-horas"
+              class="btn btn--primary"
+              data-nav="ferramentas/banco-horas"
+            >
+              Abrir ferramenta
+            </a>
+
           </div>
-          <div class="flow-steps" aria-hidden="true">
+
+          <div
+            class="flow-steps"
+            aria-hidden="true"
+          >
+
             <div class="flow-step is-active">
-              <div class="flow-step__index">1</div><div class="flow-step__label">Upload</div>
+              <div class="flow-step__index">1</div>
+              <div class="flow-step__label">Upload</div>
             </div>
+
             <div class="flow-step__connector"></div>
+
             <div class="flow-step">
-              <div class="flow-step__index">2</div><div class="flow-step__label">Processamento</div>
+              <div class="flow-step__index">2</div>
+              <div class="flow-step__label">Processamento</div>
             </div>
+
             <div class="flow-step__connector"></div>
+
             <div class="flow-step">
-              <div class="flow-step__index">3</div><div class="flow-step__label">Prévia</div>
+              <div class="flow-step__index">3</div>
+              <div class="flow-step__label">Prévia</div>
             </div>
+
             <div class="flow-step__connector"></div>
+
             <div class="flow-step">
-              <div class="flow-step__index">4</div><div class="flow-step__label">Download</div>
+              <div class="flow-step__index">4</div>
+              <div class="flow-step__label">Download</div>
             </div>
+
           </div>
+
         </div>
+
       </section>
 
       <!-- ================= BANCO DE HORAS ================= -->
-      <section id="view-banco-horas" class="view" aria-labelledby="bh-heading">
+
+      <section
+        id="view-banco-horas"
+        class="view"
+        aria-labelledby="bh-heading"
+      >
+
         <div class="page-heading">
+
           <span class="page-heading__eyebrow">
-            <svg class="icon icon--sm"><use href="#icon-tool"></use></svg> Ferramentas
+            <svg class="icon icon--sm">
+              <use href="#icon-tool"></use>
+            </svg>
+
+            Ferramentas
           </span>
-          <h1 id="bh-heading">Conversor de Banco de Horas</h1>
-          <p>Converta seu arquivo CSV para o formato correto utilizado no Power BI.</p>
+
+          <h1 id="bh-heading">
+            Conversor de Banco de Horas
+          </h1>
+
+          <p>
+            Converta seu arquivo CSV para o formato correto utilizado no Power BI.
+          </p>
+
         </div>
 
-        <div class="flow-steps" id="bh-flow-steps" aria-hidden="true">
-          <div class="flow-step is-active" data-flow-step="1">
-            <div class="flow-step__index">1</div><div class="flow-step__label">Upload</div>
+        <div
+          class="flow-steps"
+          id="bh-flow-steps"
+          aria-hidden="true"
+        >
+
+          <div
+            class="flow-step is-active"
+            data-flow-step="1"
+          >
+            <div class="flow-step__index">1</div>
+            <div class="flow-step__label">Upload</div>
           </div>
+
           <div class="flow-step__connector"></div>
-          <div class="flow-step" data-flow-step="2">
-            <div class="flow-step__index">2</div><div class="flow-step__label">Processamento</div>
+
+          <div
+            class="flow-step"
+            data-flow-step="2"
+          >
+            <div class="flow-step__index">2</div>
+            <div class="flow-step__label">Processamento</div>
           </div>
+
           <div class="flow-step__connector"></div>
-          <div class="flow-step" data-flow-step="3">
-            <div class="flow-step__index">3</div><div class="flow-step__label">Prévia</div>
+
+          <div
+            class="flow-step"
+            data-flow-step="3"
+          >
+            <div class="flow-step__index">3</div>
+            <div class="flow-step__label">Prévia</div>
           </div>
+
           <div class="flow-step__connector"></div>
-          <div class="flow-step" data-flow-step="4">
-            <div class="flow-step__index">4</div><div class="flow-step__label">Download</div>
+
+          <div
+            class="flow-step"
+            data-flow-step="4"
+          >
+            <div class="flow-step__index">4</div>
+            <div class="flow-step__label">Download</div>
           </div>
+
         </div>
 
-        <!-- Etapa 01 — Upload -->
-        <div class="bh-panel is-active" data-bh-view="upload">
-          <div class="upload-zone" id="bh-dropzone" tabindex="0" role="button" aria-label="Selecionar arquivos CSV">
-            <div class="upload-zone__icon"><svg class="icon icon--xl"><use href="#icon-cloud-upload"></use></svg></div>
-            <p class="upload-zone__title">Arraste seus arquivos CSV aqui</p>
-            <p class="upload-zone__hint">ou clique para selecionar (pode enviar mais de um mês por vez)</p>
-            <p class="upload-zone__meta">Formatos aceitos: .csv</p>
-            <input type="file" id="bh-file-input" accept=".csv,text/csv" multiple>
+        <!-- Etapa 01 -->
+
+        <div
+          class="bh-panel is-active"
+          data-bh-view="upload"
+        >
+
+          <div
+            class="upload-zone"
+            id="bh-dropzone"
+            tabindex="0"
+            role="button"
+            aria-label="Selecionar arquivos CSV"
+          >
+
+            <div class="upload-zone__icon">
+              <svg class="icon icon--xl">
+                <use href="#icon-cloud-upload"></use>
+              </svg>
+            </div>
+
+            <p class="upload-zone__title">
+              Arraste seus arquivos CSV aqui
+            </p>
+
+            <p class="upload-zone__hint">
+              ou clique para selecionar
+              (pode enviar mais de um mês por vez)
+            </p>
+
+            <p class="upload-zone__meta">
+              Formatos aceitos: .csv
+            </p>
+
+            <input
+              type="file"
+              id="bh-file-input"
+              accept=".csv,text/csv"
+              multiple
+            >
+
           </div>
 
-          <div class="file-list" id="bh-file-list" hidden></div>
+          <div
+            class="file-list"
+            id="bh-file-list"
+            hidden
+          ></div>
 
           <template id="bh-file-card-template">
+
             <div class="file-card">
-              <div class="file-card__icon"><svg class="icon"><use href="#icon-file-text"></use></svg></div>
+
+              <div class="file-card__icon">
+                <svg class="icon">
+                  <use href="#icon-file-text"></use>
+                </svg>
+              </div>
+
               <div class="file-card__info">
+
                 <p class="file-card__name"></p>
+
                 <p class="file-card__meta"></p>
+
                 <label class="file-card__competencia-label">
+
                   Competência (AAAA/MM)
-                  <input type="text" class="file-card__competencia" placeholder="Ex.: 2026/07" maxlength="7">
+
+                  <input
+                    type="text"
+                    class="file-card__competencia"
+                    placeholder="Ex.: 2026/07"
+                    maxlength="7"
+                  >
+
                 </label>
-                <p class="file-card__competencia-error" hidden>Informe a competência no formato AAAA/MM.</p>
+
+                <p
+                  class="file-card__competencia-error"
+                  hidden
+                >
+                  Informe a competência no formato AAAA/MM.
+                </p>
+
               </div>
+
               <div class="file-card__actions">
-                <button type="button" class="btn btn--ghost btn--sm bh-file-remove-btn">
-                  <svg class="icon icon--sm"><use href="#icon-trash"></use></svg> Remover
+
+                <button
+                  type="button"
+                  class="btn btn--ghost btn--sm bh-file-remove-btn"
+                >
+
+                  <svg class="icon icon--sm">
+                    <use href="#icon-trash"></use>
+                  </svg>
+
+                  Remover
+
                 </button>
+
               </div>
+
             </div>
+
           </template>
 
-          <div class="step-actions step-actions--between" id="bh-add-more-wrap" hidden>
-            <button type="button" class="btn btn--secondary btn--sm" id="bh-add-more">
-              <svg class="icon icon--sm"><use href="#icon-cloud-upload"></use></svg> Adicionar mais arquivos
+          <div
+            class="step-actions step-actions--between"
+            id="bh-add-more-wrap"
+            hidden
+          >
+
+            <button
+              type="button"
+              class="btn btn--secondary btn--sm"
+              id="bh-add-more"
+            >
+
+              <svg class="icon icon--sm">
+                <use href="#icon-cloud-upload"></use>
+              </svg>
+
+              Adicionar mais arquivos
+
             </button>
+
           </div>
 
           <div id="bh-error-slot"></div>
 
           <p class="privacy-note">
-            <svg class="icon icon--sm"><use href="#icon-shield-check"></use></svg>
-            Seus dados são processados localmente no seu navegador. Nenhum arquivo é enviado para servidores.
+
+            <svg class="icon icon--sm">
+              <use href="#icon-shield-check"></use>
+            </svg>
+
+            Seus dados são processados localmente no seu navegador.
+            Nenhum arquivo é enviado para servidores.
+
           </p>
 
-          <div class="step-actions" id="bh-upload-actions" hidden>
-            <button type="button" class="btn btn--primary" id="bh-continue-btn">Continuar</button>
+          <div
+            class="step-actions"
+            id="bh-upload-actions"
+            hidden
+          >
+
+            <button
+              type="button"
+              class="btn btn--primary"
+              id="bh-continue-btn"
+            >
+              Continuar
+            </button>
+
           </div>
+
         </div>
 
-        <!-- Etapa 02 — Processamento -->
-        <div class="bh-panel" data-bh-view="processing">
+        <!-- Etapa 02 -->
+
+        <div
+          class="bh-panel"
+          data-bh-view="processing"
+        >
+
           <div class="state-panel">
-            <div class="state-panel__icon"><div class="spinner"></div></div>
-            <h2 class="state-panel__title">Processando seu arquivo…</h2>
-            <p class="state-panel__text">Estamos lendo e validando os dados do seu CSV. Isso leva só alguns instantes.</p>
-          </div>
-        </div>
 
-        <!-- Etapa 03 — Prévia -->
-        <div class="bh-panel" data-bh-view="preview">
-          <div class="preview-meta">
-            <span><strong id="bh-preview-count">0</strong> registros encontrados</span>
-          </div>
-          <div id="bh-preview-alert-slot"></div>
-          <div class="preview-table-wrap">
-            <table class="preview-table" id="bh-preview-table">
-              <thead><tr id="bh-preview-head"></tr></thead>
-              <tbody id="bh-preview-body"></tbody>
-            </table>
-          </div>
-          <p class="text-muted" style="font-size:var(--fs-xs);margin-top:-8px;">Mostrando as primeiras linhas do arquivo já convertido, para conferência antes do download.</p>
-          <div class="step-actions step-actions--between">
-            <button type="button" class="btn btn--ghost" id="bh-preview-back">Voltar</button>
-            <button type="button" class="btn btn--primary" id="bh-preview-continue">Continuar</button>
-          </div>
-        </div>
-
-        <!-- Etapa 04 — Download -->
-        <div class="bh-panel" data-bh-view="success">
-          <div class="state-panel">
             <div class="state-panel__icon">
-              <svg class="icon" style="width:72px;height:72px;color:var(--color-teal);"><use href="#icon-check-circle"></use></svg>
+              <div class="spinner"></div>
             </div>
-            <h2 class="state-panel__title">Arquivo convertido com sucesso!</h2>
-            <p class="state-panel__text" id="bh-success-filename"></p>
+
+            <h2 class="state-panel__title">
+              Processando seu arquivo…
+            </h2>
+
+            <p class="state-panel__text">
+              Estamos lendo e validando os dados do seu CSV.
+              Isso leva só alguns instantes.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- Etapa 03 -->
+
+        <div
+          class="bh-panel"
+          data-bh-view="preview"
+        >
+
+          <div class="preview-meta">
+            <span>
+              <strong id="bh-preview-count">0</strong>
+              registros encontrados
+            </span>
+          </div>
+
+          <div id="bh-preview-alert-slot"></div>
+
+          <div class="preview-table-wrap">
+
+            <table
+              class="preview-table"
+              id="bh-preview-table"
+            >
+
+              <thead>
+                <tr id="bh-preview-head"></tr>
+              </thead>
+
+              <tbody id="bh-preview-body"></tbody>
+
+            </table>
+
+          </div>
+
+          <p
+            class="text-muted"
+            style="font-size:var(--fs-xs);margin-top:-8px;"
+          >
+            Mostrando as primeiras linhas do arquivo já convertido,
+            para conferência antes do download.
+          </p>
+
+          <div class="step-actions step-actions--between">
+
+            <button
+              type="button"
+              class="btn btn--ghost"
+              id="bh-preview-back"
+            >
+              Voltar
+            </button>
+
+            <button
+              type="button"
+              class="btn btn--primary"
+              id="bh-preview-continue"
+            >
+              Continuar
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Etapa 04 -->
+
+        <div
+          class="bh-panel"
+          data-bh-view="success"
+        >
+
+          <div class="state-panel">
+
+            <div class="state-panel__icon">
+
+              <svg
+                class="icon"
+                style="width:72px;height:72px;color:var(--color-teal);"
+              >
+                <use href="#icon-check-circle"></use>
+              </svg>
+
+            </div>
+
+            <h2 class="state-panel__title">
+              Arquivo convertido com sucesso!
+            </h2>
+
+            <p
+              class="state-panel__text"
+              id="bh-success-filename"
+            ></p>
 
             <div class="result-summary">
+
               <div class="result-summary__item">
-                <div class="result-summary__value" id="bh-success-count">0</div>
-                <div class="result-summary__label">Registros processados</div>
+
+                <div
+                  class="result-summary__value"
+                  id="bh-success-count"
+                >
+                  0
+                </div>
+
+                <div class="result-summary__label">
+                  Registros processados
+                </div>
+
               </div>
+
               <div class="result-summary__item">
-                <div class="result-summary__value" id="bh-success-warnings">0</div>
-                <div class="result-summary__label">Avisos</div>
+
+                <div
+                  class="result-summary__value"
+                  id="bh-success-warnings"
+                >
+                  0
+                </div>
+
+                <div class="result-summary__label">
+                  Avisos
+                </div>
+
               </div>
+
             </div>
 
-            <div id="bh-success-warning-list" style="text-align:left; max-width:520px; margin: 0 auto var(--space-5);"></div>
+            <div
+              id="bh-success-warning-list"
+              style="text-align:left; max-width:520px; margin: 0 auto var(--space-5);"
+            ></div>
 
-            <div class="step-actions" style="margin-top:0; flex-direction:column; align-items:center; gap:var(--space-3);">
-              <button type="button" class="btn btn--primary" id="bh-download-btn">
-                <svg class="icon icon--sm"><use href="#icon-download"></use></svg> Baixar arquivo convertido
+            <div
+              class="step-actions"
+              style="margin-top:0; flex-direction:column; align-items:center; gap:var(--space-3);"
+            >
+
+              <button
+                type="button"
+                class="btn btn--primary"
+                id="bh-download-btn"
+              >
+
+                <svg class="icon icon--sm">
+                  <use href="#icon-download"></use>
+                </svg>
+
+                Baixar arquivo convertido
+
               </button>
-              <p class="text-muted" style="font-size:var(--fs-xs); margin: 0;">🦉 Pronto! Seu arquivo está preparado para o Power BI.</p>
-              <button type="button" class="btn btn--ghost btn--sm" id="bh-success-restart">Converter outro arquivo</button>
+
+              <p
+                class="text-muted"
+                style="font-size:var(--fs-xs); margin: 0;"
+              >
+                🦉 Pronto! Seu arquivo está preparado para o Power BI.
+              </p>
+
+              <button
+                type="button"
+                class="btn btn--ghost btn--sm"
+                id="bh-success-restart"
+              >
+                Converter outro arquivo
+              </button>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
-      <!-- ================= EM BREVE (genérica) ================= -->
-      <section id="view-em-breve" class="view" aria-labelledby="eb-title">
+      <!-- ================= EM BREVE ================= -->
+
+      <section
+        id="view-em-breve"
+        class="view"
+        aria-labelledby="eb-title"
+      >
+
         <div class="empty-state">
-          <div class="empty-state__mascot" aria-hidden="true"><svg><use href="#icon-owl"></use></svg></div>
-          <h1 class="empty-state__title" id="eb-title">Em breve</h1>
-          <p class="empty-state__text" id="eb-text">Estamos preparando esta funcionalidade.</p>
+
+          <!-- NOVA MASCOTE -->
+
+          <div class="empty-state__mascot">
+
+            <img
+              src="assets/mascot/favicon.svg"
+              alt="Mascote Pessoas e Cultura"
+            >
+
+          </div>
+
+          <h1
+            class="empty-state__title"
+            id="eb-title"
+          >
+            Em breve
+          </h1>
+
+          <p
+            class="empty-state__text"
+            id="eb-text"
+          >
+            Estamos preparando esta funcionalidade.
+          </p>
+
         </div>
+
       </section>
 
     </main>
+
   </div>
 
-  <div class="pc-stripe" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="pc-stripe" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
 </div>
 
 <script src="js/vendor/papaparse.min.js" defer></script>
 <script src="js/navigation.js" defer></script>
 <script src="js/banco-horas.js" defer></script>
 <script src="js/app.js" defer></script>
+
 </body>
 </html>
