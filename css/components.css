@@ -860,3 +860,28 @@
   display: block;
   animation: view-fade 220ms ease;
 }
+/* ==========================================
+   LOGO PESSOAS E CULTURA - HEADER
+   ========================================== */
+
+.brand-pessoas-cultura {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+}
+
+.brand-pessoas-cultura img {
+    display: block;
+    width: auto;
+    height: 34px;
+    max-width: 140px;
+    object-fit: contain;
+}
+
+/* Garante que nenhum símbolo seja adicionado */
+.brand-pessoas-cultura::before,
+.brand-pessoas-cultura::after {
+    content: none !important;
+    display: none !important;
+}
