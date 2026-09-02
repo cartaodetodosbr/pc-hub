@@ -5,52 +5,142 @@
 
 /* --------------------------------------------------------------------------
    TIPOGRAFIA — PANTON
-   A fonte oficial dos materiais de Pessoas & Cultura é a família Panton.
-   Os arquivos ainda não foram fornecidos. Quando estiverem disponíveis:
-     1. Salve os arquivos (.woff2 / .woff) dentro de /assets/fonts/
-        Ex.: /assets/fonts/Panton-Regular.woff2
-             /assets/fonts/Panton-Medium.woff2
-             /assets/fonts/Panton-Bold.woff2
-             /assets/fonts/Panton-ExtraBold.woff2
-     2. Descomente o bloco @font-face abaixo e ajuste os nomes de arquivo.
-     3. Nada mais precisa mudar — as variáveis --font-heading/--font-body
-        já referenciam "Panton" com fallback para Poppins.
+   Família oficial dos materiais de Pessoas & Cultura. Os 18 arquivos
+   (9 pesos x normal/itálico) foram convertidos de .otf para .woff2 — mesmo
+   conteúdo, arquivo bem mais leve para a web — e vivem em /assets/fonts/.
+   O navegador só baixa o arquivo de um peso quando esse peso é realmente
+   usado na página, então declarar a família toda aqui não pesa no
+   carregamento das telas que usam só 2 ou 3 pesos.
+   Poppins (Google Fonts) continua como alternativa visual enquanto a
+   Panton não termina de carregar, ou caso o arquivo de algum peso falhe.
    -------------------------------------------------------------------------- */
 
-/*
 @font-face {
   font-family: "Panton";
-  src: url("../assets/fonts/Panton-Regular.woff2") format("woff2"),
-       url("../assets/fonts/Panton-Regular.woff") format("woff");
+  src: url("../assets/fonts/Panton-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-ThinItalic.woff2") format("woff2");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-ExtraLightItalic.woff2") format("woff2");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Panton";
-  src: url("../assets/fonts/Panton-Medium.woff2") format("woff2"),
-       url("../assets/fonts/Panton-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../assets/fonts/Panton-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-SemiBold.woff2") format("woff2");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Panton";
-  src: url("../assets/fonts/Panton-Bold.woff2") format("woff2"),
-       url("../assets/fonts/Panton-Bold.woff") format("woff");
+  src: url("../assets/fonts/Panton-SemiBoldItalic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Panton";
-  src: url("../assets/fonts/Panton-ExtraBold.woff2") format("woff2"),
-       url("../assets/fonts/Panton-ExtraBold.woff") format("woff");
+  src: url("../assets/fonts/Panton-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
-*/
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-ExtraBoldItalic.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-BlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-ExtraBlack.woff2") format("woff2");
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Panton";
+  src: url("../assets/fonts/Panton-ExtraBlackItalic.woff2") format("woff2");
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}
 
 :root {
   /* ---- Cores da identidade P&C -------------------------------------- */

@@ -5,9 +5,10 @@ Portal de ferramentas e facilidades do time de Pessoas & Cultura da TODOS Empree
 ## O que já está pronto (v1)
 
 - Layout completo e navegável: cabeçalho, menu lateral, faixas coloridas institucionais.
-- Home com banner de boas-vindas, cards de acesso rápido e destaque para a ferramenta funcional.
-- Menu lateral com Início, Ferramentas (Banco de Horas, Calculadoras, Modelos e Templates, Guia Rápido), Indicadores, Documentos, Automações, Ajuda e Fale com o time — as seções ainda não construídas mostram uma tela "Em breve".
+- Home pensada como o ambiente de trabalho do próprio time de P&C (não um portal de atendimento ao colaborador): banner de boas-vindas, cards de acesso rápido organizados por módulo (Nosso Dia, Indicadores, Ferramentas, Projetos/Iniciativas, Documentos/Materiais, QIA), um bloco "Nossos Pilares" e destaque para a ferramenta funcional.
+- Menu lateral com Início, Ferramentas (Banco de Horas, Calculadoras, Modelos e Templates, Guia Rápido), Indicadores, Documentos, Automações e Ajuda — as seções ainda não construídas mostram uma tela "Em breve".
 - **Conversor de Banco de Horas totalmente funcional**: upload (arrastar/soltar ou selecionar, múltiplos arquivos/meses de uma vez), processamento e validação, prévia do resultado convertido e download do CSV pronto para o Power BI — tudo processado localmente no navegador, sem envio de dados a nenhum servidor.
+- **Aniversariantes do mês, na Home**: identifica o mês atual automaticamente e lista quem faz aniversário nele (ordenado por dia), além de destacar o próximo aniversário do time. Os dados vêm de `data/aniversariantes.json` — para atualizar quem faz aniversário quando alguém entra, sai ou muda a data, basta editar esse arquivo, sem tocar em HTML/CSS/JS.
 - Responsivo: desktop grande, notebook, tablet e celular (menu lateral vira off-canvas em telas menores).
 
 ## Estrutura de pastas
@@ -25,12 +26,15 @@ pc-hub/
 │   ├── app.js                 → inicialização
 │   ├── navigation.js          → roteamento por hash e menu lateral
 │   ├── banco-horas.js         → lógica completa do Conversor de Banco de Horas
+│   ├── aniversariantes.js     → lê data/aniversariantes.json e monta a seção "Aniversariantes do mês" da Home
 │   └── vendor/papaparse.min.js → biblioteca PapaParse (MIT), hospedada localmente
+├── data/
+│   └── aniversariantes.json   → lista de nome + data de aniversário (DD/MM) — única fonte de dados da seção
 ├── assets/
 │   ├── logos/                 → logo TODOS Empreendimentos, logo Pessoas e Cultura
-│   ├── mascot/                → QIA (versão em glow, reservada para uso pontual)
+│   ├── mascot/                → mascote (coruja) usado no banner da Home, no rodapé do menu e nas telas "Em breve"; e QIA em glow, reservada para uso pontual
 │   ├── images/                → favicon.svg
-│   └── fonts/                 → **pendente**: arquivos da fonte Panton (ver abaixo)
+│   └── fonts/                 → família Panton completa (18 arquivos .woff2 — 9 pesos x normal/itálico)
 └── README.md
 ```
 
@@ -52,16 +56,22 @@ pc-hub/
 6. Salve. Em alguns minutos o site estará disponível em `https://SEU-USUARIO.github.io/SEU-REPOSITORIO/`.
 7. Para atualizar o site depois, basta editar os arquivos localmente e repetir `git add` / `git commit` / `git push` — o GitHub Pages publica automaticamente a cada push na branch configurada.
 
-Nenhuma etapa de build é necessária — é HTML/CSS/JS puro, funciona abrindo o `index.html` direto no navegador (inclusive localmente, com duplo clique, para testar antes de publicar).
+Nenhuma etapa de build é necessária — é HTML/CSS/JS puro. No GitHub Pages (ou em qualquer servidor local, como `python -m http.server`) tudo funciona normalmente, inclusive a seção de aniversariantes. **Só a seção de aniversariantes é uma exceção ao "abrir com duplo clique"**: ela busca o arquivo `data/aniversariantes.json` com `fetch`, e por segurança os navegadores bloqueiam esse tipo de leitura quando a página é aberta direto do disco (`file://`) — o restante do site (incluindo o Conversor de Banco de Horas) continua funcionando normalmente nesse modo. Para testar tudo localmente antes de publicar, use um servidor simples, por exemplo `python -m http.server` na pasta do projeto e abra `http://localhost:8000`.
 
-**Nota sobre dependências externas:** a única biblioteca JavaScript usada (PapaParse, para leitura do CSV) está hospedada dentro do próprio projeto, em `js/vendor/papaparse.min.js`, em vez de vir de um CDN externo — assim o Conversor de Banco de Horas continua funcionando mesmo se a rede da empresa bloquear domínios externos. A única chamada a um serviço externo é o Google Fonts (para a fonte Poppins, usada como substituta temporária da Panton); se isso também for bloqueado na rede corporativa, o navegador usa automaticamente a fonte padrão do sistema, sem quebrar o site.
+**Nota sobre dependências externas:** a única biblioteca JavaScript usada (PapaParse, para leitura do CSV) está hospedada dentro do próprio projeto, em `js/vendor/papaparse.min.js`, em vez de vir de um CDN externo — assim o Conversor de Banco de Horas continua funcionando mesmo se a rede da empresa bloquear domínios externos. A fonte Panton também está hospedada localmente (`assets/fonts/`). A única chamada a um serviço externo é o Google Fonts (para a fonte Poppins, mantida como alternativa visual caso algum peso da Panton falhe ao carregar); se isso também for bloqueado na rede corporativa, o navegador usa automaticamente a fonte padrão do sistema, sem quebrar o site.
+
+## Tipografia — Panton
+
+Os 18 arquivos da família (Thin, ExtraLight, Light, Regular, SemiBold, Bold, ExtraBold, Black e ExtraBlack, cada um em normal e itálico) foram recebidos em `.otf` e convertidos para `.woff2` — mesmo desenho, arquivo bem mais leve para carregar na web. Todos os pesos estão declarados em `css/variables.css`, mas o navegador só baixa o arquivo do peso que a página realmente usa (os demais ficam "em espera"), então ter a família toda disponível não deixa o site mais pesado. Os `.woff2` já usados pelo layout (Regular, Bold e ExtraBold) têm `<link rel="preload">` no `index.html` para carregar o quanto antes e evitar o texto "piscar" com a fonte de fallback.
+
+Se precisar reprocessar os arquivos originais (`.otf`) no futuro — por exemplo, para adicionar um peso que não veio nesta leva —, qualquer conversor otf → woff2 resolve (o comando `fonttools` do Python foi o usado aqui: `python -m fontTools.ttLib.woff2 compress arquivo.otf`).
 
 ## Pendências conhecidas
 
-- **Fonte Panton**: os arquivos ainda não foram recebidos. O site usa Poppins (Google Fonts) como fallback visual. Para trocar: coloque os arquivos `.woff2`/`.woff` em `assets/fonts/`, descomente o bloco `@font-face` no topo de `css/variables.css` e ajuste os nomes de arquivo — nada mais precisa mudar.
-- **Coruja mascote (versão verde/ilustrada)**: hoje é recriada como um SVG simples embutido no próprio `index.html` (não depende de nenhum arquivo externo). Se você tiver o arquivo oficial da ilustração (PNG/SVG com fundo transparente), ela pode substituir o SVG atual para ficar idêntica à peça original.
+- **Coruja mascote**: hoje é a ilustração em `assets/mascot/favicon.svg`, referenciada por `<img>` nos três lugares em que a mascote aparece (banner da Home, rodapé do menu lateral, telas "Em breve"). Se um dia fizer sentido trocar pela ilustração oficial (PNG/SVG com fundo transparente), basta substituir esse arquivo — não é preciso mexer em HTML/CSS.
 - **Painéis "Novidades" e "Acessos Rápidos"** do mockup original não foram incluídos nesta v1 (decisão tomada em conjunto: eles traziam notícias de exemplo e links para SharePoint/Power BI/Calendário/Teams, fora do escopo desta primeira versão). Podem ser adicionados depois, quando essas integrações existirem de fato.
-- **Indicadores, Documentos, Automações, Calculadoras, Modelos e Templates, Guia Rápido**: só têm a tela "Em breve" — o conteúdo real entra em versões futuras.
+- **"Fale com o time P&C"** foi removido do menu e da Home: quem acessa o Hub já é do time de P&C, então essa opção não fazia sentido como canal de atendimento externo.
+- **Nosso Dia, Indicadores, Documentos, Projetos/Iniciativas, QIA, Automações, Calculadoras, Modelos e Templates, Guia Rápido**: só têm a tela "Em breve" — o conteúdo real entra em versões futuras. O bloco "Nossos Pilares" na Home (DHO, R&S, Remuneração, Administração de Pessoal, Comunicação, People Analytics) também é só visual por enquanto, sem links — é a estrutura pronta para quando cada pilar tiver conteúdo próprio.
 
 ## Conversor de Banco de Horas — como funciona
 
@@ -81,8 +91,23 @@ Resumo das regras implementadas:
 
 O arquivo de exemplo já convertido que foi usado como referência apresenta **matrícula com sufixo `.0`** (ex.: `131.0`) e **CPF sem o zero à esquerda** (ex.: `8930499643` em vez de `08930499643`) em alguns registros — um efeito colateral comum de planilhas/Python quando uma coluna de texto é lida como número. Isso contraria a própria regra escrita no documento ("nunca converter para número — causa notação científica"), e pode causar problema de correspondência (matching) por CPF em cruzamentos futuros. **O Conversor do P&C Hub não repete esse comportamento**: matrícula e CPF são sempre tratados como texto puro, preservando zeros à esquerda e sem o sufixo `.0`. Vale considerar aplicar a mesma correção na rotina Python/Power BI atual, se ela ainda estiver em uso em paralelo.
 
+## Aniversariantes do mês — como funciona
+
+A seção fica na Home, logo abaixo do banner de boas-vindas, e segue o fluxo `data/aniversariantes.json → js/aniversariantes.js → seção visual`:
+
+1. O JavaScript identifica o mês atual pela data do dispositivo do usuário (não depende do ano — cada pessoa no JSON tem só `"DD/MM"`).
+2. Filtra e ordena (por dia) quem faz aniversário nesse mês, mostrando nome e data no formato `DD de mês`.
+3. Se ninguém do time fizer aniversário no mês, mostra a mensagem "Ninguém faz aniversário este mês." no lugar da lista.
+4. Destaca também o **próximo aniversário** do time a partir de hoje (considerando todos os cadastrados, não só os do mês atual), com nome, data e "em quantos dias" — inclusive virando o ano quando o próximo aniversário só cai no ano seguinte.
+
+Para atualizar (alguém novo no time, mudança de data, etc.), basta editar `data/aniversariantes.json` — nenhum outro arquivo precisa mudar:
+
+```json
+{ "nome": "Nome da pessoa", "aniversario": "DD/MM" }
+```
+
 ## Próximos passos sugeridos
 
-- Enviar os arquivos da fonte Panton para deixar a identidade visual 100% fiel à marca.
 - Validar a ferramenta de Banco de Horas com um mês real completo (upload de ponta a ponta) antes de divulgar para o time.
+- Manter `data/aniversariantes.json` atualizado conforme o time muda (entradas, saídas, correções de data).
 - Quando fizer sentido, avaliar a integração futura com SharePoint (fora do escopo desta v1, por decisão explícita).

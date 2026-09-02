@@ -41,12 +41,22 @@ var PC_ROUTES = {
   "ajuda": {
     view: "view-em-breve",
     title: "Ajuda",
-    text: "Nossa central de ajuda está a caminho. Enquanto isso, fale direto com o time de P&C pelo menu ao lado."
+    text: "Nossa central de ajuda está a caminho. Estamos preparando esta funcionalidade."
   },
-  "fale-com-time": {
+  "nosso-dia": {
     view: "view-em-breve",
-    title: "Fale com o time P&C",
-    text: "Em breve você vai poder abrir uma conversa direta com o time de Pessoas & Cultura por aqui. Estamos preparando esta funcionalidade."
+    title: "Nosso Dia",
+    text: "Em breve você vai encontrar aqui aniversários, a agenda de P&C e outras informações rápidas do dia a dia. Estamos preparando esta funcionalidade."
+  },
+  "projetos": {
+    view: "view-em-breve",
+    title: "Projetos / Iniciativas",
+    text: "Em breve você vai acompanhar aqui os projetos e iniciativas em andamento no time de Pessoas & Cultura. Estamos preparando esta funcionalidade."
+  },
+  "qia": {
+    view: "view-em-breve",
+    title: "QIA",
+    text: "Em breve você vai encontrar aqui mais sobre a QIA, nossa assistente de Pessoas & Cultura. Estamos preparando esta funcionalidade."
   }
 };
 

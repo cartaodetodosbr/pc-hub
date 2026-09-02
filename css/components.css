@@ -267,7 +267,8 @@
   justify-content: center;
 }
 
-.welcome-banner__mascot svg {
+.welcome-banner__mascot svg,
+.welcome-banner__mascot img {
   width: 100%;
   height: 100%;
 }
@@ -288,7 +289,7 @@
 /* ---- Cards de acesso rápido ------------------------------------------------------ */
 .quick-links {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-4);
   margin-bottom: var(--space-8);
 }
@@ -407,6 +408,167 @@
 .badge--live {
   background: var(--color-teal-light);
   color: var(--color-teal-dark);
+}
+
+/* ---- Aniversariantes do mês (Home) -------------------------------------------------
+   Fonte dos dados: data/aniversariantes.json, lido por js/aniversariantes.js.
+   ---------------------------------------------------------------------------------- */
+.birthday-panel {
+  background: linear-gradient(135deg, var(--color-pink-light) 0%, #ffffff 55%, var(--color-orange-light) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.birthday-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-5);
+}
+
+.birthday-panel__header h2 {
+  margin: 0;
+  font-size: var(--fs-lg);
+}
+
+.birthday-panel__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-pink);
+  margin: 0 0 4px;
+}
+
+.birthday-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.birthday-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+}
+
+.birthday-item__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--color-text-inverse);
+  background: var(--color-teal);
+  flex-shrink: 0;
+}
+
+.birthday-item:nth-child(4n+2) .birthday-item__avatar { background: var(--color-orange); }
+.birthday-item:nth-child(4n+3) .birthday-item__avatar { background: var(--color-purple); }
+.birthday-item:nth-child(4n+4) .birthday-item__avatar { background: var(--color-pink); }
+
+.birthday-item__name {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  flex: 1;
+  min-width: 0;
+}
+
+.birthday-item__date {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.birthday-empty {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+  margin: 0;
+}
+
+.next-birthday {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 200px;
+}
+
+.next-birthday__label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.next-birthday__name {
+  font-weight: 700;
+  font-size: var(--fs-md);
+  color: var(--color-text-primary);
+}
+
+.next-birthday__meta {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+}
+
+/* ---- Nossos Pilares (tags estáticas, sem link) ------------------------------------ */
+.pillars-panel {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.pillars-panel__text {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-sm);
+}
+
+.pillar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.pillar-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.pillar-tag__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-purple);
+  flex-shrink: 0;
 }
 
 /* ---- Ferramenta em destaque (preview do Banco de Horas na home) ------------------ */
@@ -800,7 +962,8 @@
   margin-bottom: var(--space-6);
 }
 
-.empty-state__mascot svg { width: 100%; height: 100%; }
+.empty-state__mascot svg,
+.empty-state__mascot img { width: 100%; height: 100%; }
 
 .empty-state__title {
   font-size: var(--fs-2xl);
@@ -859,29 +1022,4 @@
 .bh-panel.is-active {
   display: block;
   animation: view-fade 220ms ease;
-}
-/* ==========================================
-   LOGO PESSOAS E CULTURA - HEADER
-   ========================================== */
-
-.brand-pessoas-cultura {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 42px;
-}
-
-.brand-pessoas-cultura img {
-    display: block;
-    width: auto;
-    height: 34px;
-    max-width: 140px;
-    object-fit: contain;
-}
-
-/* Garante que nenhum símbolo seja adicionado */
-.brand-pessoas-cultura::before,
-.brand-pessoas-cultura::after {
-    content: none !important;
-    display: none !important;
 }

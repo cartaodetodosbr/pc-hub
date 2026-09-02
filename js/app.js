@@ -4,4 +4,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   pcInitNavigation();
   pcInitBancoHoras();
+  pcInitAniversariantes();
 });
