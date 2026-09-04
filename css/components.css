@@ -801,6 +801,62 @@
   margin-top: var(--space-4);
 }
 
+/* ---- Cartão "Onde salvar o arquivo" (tela de sucesso do Banco de Horas) ---------- */
+.bh-folder-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-teal-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+}
+
+.bh-folder-card .icon {
+  color: var(--color-teal-dark);
+  flex-shrink: 0;
+}
+
+.bh-folder-card__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.bh-folder-card__title {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--color-text-primary);
+  margin: 0 0 2px;
+}
+
+.bh-folder-card__path {
+  font-size: var(--fs-xs);
+  color: var(--color-teal-dark);
+  margin: 0 0 4px;
+}
+
+.bh-folder-card__hint {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.bh-folder-card .btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  .bh-folder-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bh-folder-card .btn {
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
 .privacy-note .icon {
   color: var(--color-teal-dark);
   margin-top: 1px;
@@ -1022,42 +1078,4 @@
 .bh-panel.is-active {
   display: block;
   animation: view-fade 220ms ease;
-}
-
-/* ── Card de instrução de pasta (Banco de Horas — Etapa 04) ────────────── */
-.bh-folder-card {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  background: var(--color-teal-50, #f0faf7);
-  border: 1px solid var(--color-teal-200, #b2dfd3);
-  border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-4);
-  text-align: left;
-}
-
-.bh-folder-card__title {
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: var(--color-teal);
-  margin: 0 0 var(--space-1);
-}
-
-.bh-folder-card__path {
-  font-size: var(--fs-xs);
-  font-family: var(--font-mono, monospace);
-  color: var(--color-text-secondary);
-  word-break: break-all;
-  margin: 0 0 var(--space-2);
-}
-
-.bh-folder-card__hint {
-  font-size: var(--fs-xs);
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-.bh-folder-card .btn {
-  flex-shrink: 0;
-  margin-top: var(--space-1);
 }

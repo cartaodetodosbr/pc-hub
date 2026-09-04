@@ -35,6 +35,11 @@ var BH_OUTPUT_COLUMNS = [
 var BH_MAX_FILES = 6;
 var BH_PREVIEW_ROWS = 12;
 
+/* Pasta no SharePoint onde o arquivo convertido deve ser salvo (substituindo
+   o anterior) para o Power BI atualizar. Para trocar o link no futuro, edite
+   só esta linha — é o único lugar em todo o projeto que usa esse endereço. */
+var BH_PASTA_SHAREPOINT_URL = "https://desenvolvimentocartaodetodo-my.sharepoint.com/:f:/r/personal/peopleanalytics_cartaodetodos_com/Documents/01%20-%20PROJETOS%20ATIVOS/DEPARTAMENTO%20PESSOAL/PAINEL%20GERENCIAL/BancoDeHorasCSV?d=w2911981d50f94e1b9129903094d84e62&csf=1&web=1&e=YVj0uS";
+
 /* Estado em memória da sessão de conversão atual */
 var bhSelectedFiles = [];     // [{ id, file, competencia }]
 var bhConvertedRows = [];     // linhas já transformadas, prontas para exportar
@@ -110,6 +115,17 @@ function bhGuessCompetencia(fileName) {
 
 function bhCompetenciaValida(valor) {
   return /^\d{4}\/(0[1-9]|1[0-2])$/.test((valor || "").trim());
+}
+
+/* Quando não dá pra adivinhar a competência a partir do nome do arquivo,
+   usamos o mês atual como ponto de partida — assim o campo nunca fica em
+   branco depois do upload. Continua editável e é sempre conferido antes de
+   converter, então um palpite errado não trava ninguém. */
+function bhCompetenciaAtual() {
+  var hoje = new Date();
+  var mes = hoje.getMonth() + 1;
+  var mesStr = mes < 10 ? "0" + mes : String(mes);
+  return hoje.getFullYear() + "/" + mesStr;
 }
 
 /* --------------------------------------------------------------------------
@@ -260,7 +276,7 @@ function bhAdicionarArquivos(fileListLike) {
     bhSelectedFiles.push({
       id: "bh-file-" + bhFileIdCounter,
       file: file,
-      competencia: bhGuessCompetencia(file.name)
+      competencia: bhGuessCompetencia(file.name) || bhCompetenciaAtual()
     });
   }
 
@@ -358,12 +374,17 @@ function bhProcessarTodosArquivos() {
   var linhasConvertidas = [];
   var avisos = { testeRemovidas: 0, cpfInvalidoRemovidas: 0, setorNaoIdentificado: 0 };
   var houveErroEstrutura = false;
+  var colunasFaltandoDetectadas = [];
+  var arquivosComErro = [];
 
   bhSelectedFiles.forEach(function (item) {
     Papa.parse(item.file, {
       header: true,
-      delimiter: ";",
+      // Sem "delimiter" fixo: o PapaParse detecta sozinho se o arquivo usa
+      // ";" (padrão do sistema) ou "," (caso alguém abra e resalve em outro
+      // separador) — reduz falhas de estrutura por causa só do delimitador.
       skipEmptyLines: true,
+      transformHeader: function (header) { return (header || "").trim(); },
       complete: function (results) {
         pendentes -= 1;
 
@@ -372,6 +393,10 @@ function bhProcessarTodosArquivos() {
 
         if (faltando.length > 0) {
           houveErroEstrutura = true;
+          arquivosComErro.push(item.file.name);
+          faltando.forEach(function (col) {
+            if (colunasFaltandoDetectadas.indexOf(col) === -1) colunasFaltandoDetectadas.push(col);
+          });
         } else {
           results.data.forEach(function (row) {
             var resultado = bhTransformarLinha(row, item.competencia, avisos);
@@ -380,14 +405,15 @@ function bhProcessarTodosArquivos() {
         }
 
         if (pendentes === 0) {
-          bhFinalizarProcessamento(linhasConvertidas, avisos, houveErroEstrutura);
+          bhFinalizarProcessamento(linhasConvertidas, avisos, houveErroEstrutura, colunasFaltandoDetectadas, arquivosComErro);
         }
       },
       error: function () {
         pendentes -= 1;
         houveErroEstrutura = true;
+        arquivosComErro.push(item.file.name);
         if (pendentes === 0) {
-          bhFinalizarProcessamento(linhasConvertidas, avisos, houveErroEstrutura);
+          bhFinalizarProcessamento(linhasConvertidas, avisos, houveErroEstrutura, colunasFaltandoDetectadas, arquivosComErro);
         }
       }
     });
@@ -435,10 +461,30 @@ function bhTransformarLinha(row, competencia, avisos) {
   return linha;
 }
 
-function bhFinalizarProcessamento(linhas, avisos, houveErroEstrutura) {
+function bhFinalizarProcessamento(linhas, avisos, houveErroEstrutura, colunasFaltando, arquivosComErro) {
   if (houveErroEstrutura) {
     bhSwitchView("upload");
-    bhShowError("Não conseguimos identificar a estrutura esperada neste arquivo. Verifique se você selecionou o arquivo correto e tente novamente.");
+
+    var partes = [];
+    if (arquivosComErro && arquivosComErro.length) {
+      partes.push(
+        (arquivosComErro.length === 1
+          ? "O arquivo " + '"' + arquivosComErro[0] + '"' + " não tem"
+          : "Os arquivos " + arquivosComErro.map(function (n) { return '"' + n + '"'; }).join(", ") + " não têm") +
+        " a estrutura esperada."
+      );
+    } else {
+      partes.push("O arquivo não tem a estrutura esperada.");
+    }
+    if (colunasFaltando && colunasFaltando.length) {
+      partes.push(
+        "Coluna(s) não encontrada(s): " +
+        colunasFaltando.map(function (c) { return '"' + c + '"'; }).join(", ") + "."
+      );
+    }
+    partes.push("Verifique se é o arquivo original exportado pelo sistema (sem alterações nas colunas) e tente novamente.");
+
+    bhShowError(partes.join(" "), "Não foi possível continuar");
     return;
   }
 
@@ -537,8 +583,9 @@ function bhPrepararDownload(linhas) {
   var conteudo = "﻿" + csv;
   bhConvertedCsvBlob = new Blob([conteudo], { type: "text/csv;charset=utf-8;" });
 
-  // Nome fixo — o Power BI aponta para esse nome permanentemente.
-  // O usuário só precisa substituir o arquivo na pasta; sem editar código.
+  // Nome fixo — o Power BI aponta para esse nome/pasta permanentemente.
+  // A pessoa só precisa substituir o arquivo na pasta do SharePoint a cada
+  // conversão, sem precisar reconfigurar a fonte de dados no Power BI.
   bhConvertedFileName = "banco_de_horas.csv";
 }
 
@@ -559,26 +606,26 @@ function bhMostrarSucesso(avisos) {
   els.successFilename.textContent = bhConvertedFileName;
   els.successCount.textContent = bhConvertedRows.length;
 
-  // Instrução de destino — exibe o caminho e o atalho para abrir a pasta
+  // Instrução de destino — aponta para a pasta do SharePoint onde o arquivo
+  // convertido deve ser salvo (substituindo o anterior) para o Power BI.
   var instrucaoSlot = document.getElementById("bh-folder-instrucao");
   if (instrucaoSlot) {
-    var pastaOneDrive = "C:\\Users\\Regiane\\OneDrive - Todos Empreendimentos\\01 - PROJETOS ATIVOS\\DEPARTAMENTO PESSOAL\\PAINEL GERENCIAL\\BancoDeHorasCSV";
     instrucaoSlot.innerHTML =
       '<div class="bh-folder-card">' +
-        '<svg class="icon icon--sm" style="color:var(--color-teal);flex-shrink:0"><use href="#icon-folder"></use></svg>' +
-        '<div>' +
+        '<svg class="icon icon--sm" aria-hidden="true"><use href="#icon-folder"></use></svg>' +
+        '<div class="bh-folder-card__text">' +
           '<p class="bh-folder-card__title">Onde salvar o arquivo</p>' +
-          '<p class="bh-folder-card__path">' + pastaOneDrive + '</p>' +
-          '<p class="bh-folder-card__hint">⚠️ Substitua o arquivo <strong>banco_de_horas.csv</strong> existente na pasta.</p>' +
+          '<p class="bh-folder-card__path">SharePoint · Painel Gerencial · BancoDeHorasCSV</p>' +
+          '<p class="bh-folder-card__hint">Depois de baixar, envie o arquivo para essa pasta substituindo o <strong>' + bhConvertedFileName + '</strong> existente.</p>' +
         '</div>' +
-        '<a href="' + encodeURI("file:///" + pastaOneDrive.replace(/\\/g, "/")) + '" ' +
-           'class="btn btn--secondary btn--sm" ' +
-           'title="Abrir pasta no Explorer">' +
+        '<a href="' + BH_PASTA_SHAREPOINT_URL + '" target="_blank" rel="noopener noreferrer" ' +
+           'class="btn btn--secondary btn--sm" title="Abrir a pasta do SharePoint em uma nova aba">' +
           '<svg class="icon icon--sm"><use href="#icon-folder"></use></svg>' +
           'Abrir pasta' +
         '</a>' +
       '</div>';
   }
+
   var totalAvisos = avisos ? (avisos.testeRemovidas + avisos.cpfInvalidoRemovidas + avisos.setorNaoIdentificado) : 0;
   els.successWarnings.textContent = totalAvisos;
   els.successWarningList.innerHTML = "";
