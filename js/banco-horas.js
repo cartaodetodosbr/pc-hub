@@ -537,17 +537,9 @@ function bhPrepararDownload(linhas) {
   var conteudo = "﻿" + csv;
   bhConvertedCsvBlob = new Blob([conteudo], { type: "text/csv;charset=utf-8;" });
 
-  var competencias = linhas.map(function (l) { return l["Competência"]; });
-  var unicas = competencias.filter(function (v, i) { return competencias.indexOf(v) === i; });
-  if (unicas.length === 1) {
-    bhConvertedFileName = "banco_horas_convertido_" + unicas[0].replace("/", "-") + ".csv";
-  } else if (unicas.length > 1) {
-    var min = unicas[0].replace("/", "-");
-    var max = unicas[unicas.length - 1].replace("/", "-");
-    bhConvertedFileName = "banco_horas_convertido_" + min + "_a_" + max + ".csv";
-  } else {
-    bhConvertedFileName = "banco_horas_convertido.csv";
-  }
+  // Nome fixo — o Power BI aponta para esse nome permanentemente.
+  // O usuário só precisa substituir o arquivo na pasta; sem editar código.
+  bhConvertedFileName = "banco_de_horas.csv";
 }
 
 function bhBaixarArquivo() {
@@ -566,6 +558,27 @@ function bhMostrarSucesso(avisos) {
   var els = bhEls();
   els.successFilename.textContent = bhConvertedFileName;
   els.successCount.textContent = bhConvertedRows.length;
+
+  // Instrução de destino — exibe o caminho e o atalho para abrir a pasta
+  var instrucaoSlot = document.getElementById("bh-folder-instrucao");
+  if (instrucaoSlot) {
+    var pastaOneDrive = "C:\\Users\\Regiane\\OneDrive - Todos Empreendimentos\\01 - PROJETOS ATIVOS\\DEPARTAMENTO PESSOAL\\PAINEL GERENCIAL\\BancoDeHorasCSV";
+    instrucaoSlot.innerHTML =
+      '<div class="bh-folder-card">' +
+        '<svg class="icon icon--sm" style="color:var(--color-teal);flex-shrink:0"><use href="#icon-folder"></use></svg>' +
+        '<div>' +
+          '<p class="bh-folder-card__title">Onde salvar o arquivo</p>' +
+          '<p class="bh-folder-card__path">' + pastaOneDrive + '</p>' +
+          '<p class="bh-folder-card__hint">⚠️ Substitua o arquivo <strong>banco_de_horas.csv</strong> existente na pasta.</p>' +
+        '</div>' +
+        '<a href="' + encodeURI("file:///" + pastaOneDrive.replace(/\\/g, "/")) + '" ' +
+           'class="btn btn--secondary btn--sm" ' +
+           'title="Abrir pasta no Explorer">' +
+          '<svg class="icon icon--sm"><use href="#icon-folder"></use></svg>' +
+          'Abrir pasta' +
+        '</a>' +
+      '</div>';
+  }
   var totalAvisos = avisos ? (avisos.testeRemovidas + avisos.cpfInvalidoRemovidas + avisos.setorNaoIdentificado) : 0;
   els.successWarnings.textContent = totalAvisos;
   els.successWarningList.innerHTML = "";

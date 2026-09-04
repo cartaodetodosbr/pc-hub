@@ -1023,3 +1023,41 @@
   display: block;
   animation: view-fade 220ms ease;
 }
+
+/* ── Card de instrução de pasta (Banco de Horas — Etapa 04) ────────────── */
+.bh-folder-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  background: var(--color-teal-50, #f0faf7);
+  border: 1px solid var(--color-teal-200, #b2dfd3);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+}
+
+.bh-folder-card__title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-teal);
+  margin: 0 0 var(--space-1);
+}
+
+.bh-folder-card__path {
+  font-size: var(--fs-xs);
+  font-family: var(--font-mono, monospace);
+  color: var(--color-text-secondary);
+  word-break: break-all;
+  margin: 0 0 var(--space-2);
+}
+
+.bh-folder-card__hint {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.bh-folder-card .btn {
+  flex-shrink: 0;
+  margin-top: var(--space-1);
+}
