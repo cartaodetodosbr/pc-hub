@@ -372,7 +372,7 @@ function bhIniciarProcessamento() {
 function bhProcessarTodosArquivos() {
   var pendentes = bhSelectedFiles.length;
   var linhasConvertidas = [];
-  var avisos = { testeRemovidas: 0, cpfInvalidoRemovidas: 0, setorNaoIdentificado: 0 };
+  var avisos = { testeRemovidas: 0, cpfInvalidoRemovidas: 0, setorNaoIdentificado: 0, setorNaoIdentificadoDetalhes: [] };
   var houveErroEstrutura = false;
   var colunasFaltandoDetectadas = [];
   var arquivosComErro = [];
@@ -445,7 +445,10 @@ function bhTransformarLinha(row, competencia, avisos) {
   var saldoAcumulado = bhParseHoraParaDecimal(row["Banco Saldo"]);
   var setor = bhMapearSetor(departamento);
 
-  if (setor === "NONE") avisos.setorNaoIdentificado += 1;
+  if (setor === "NONE") {
+    avisos.setorNaoIdentificado += 1;
+    avisos.setorNaoIdentificadoDetalhes.push({ nome: nome, departamento: departamento });
+  }
 
   var linha = {};
   linha["Competência"] = competencia;
@@ -566,7 +569,11 @@ function bhListaDeAvisos(avisos) {
     lista.push(avisos.cpfInvalidoRemovidas + " registro(s) sem CPF válido foram removidos.");
   }
   if (avisos.setorNaoIdentificado > 0) {
-    lista.push(avisos.setorNaoIdentificado + " registro(s) ficaram com Setor não identificado (revise o campo \"Nome do departamento\").");
+    lista.push(avisos.setorNaoIdentificado + " registro(s) com Setor não identificado:");
+    (avisos.setorNaoIdentificadoDetalhes || []).forEach(function (item) {
+      var depto = item.departamento || "(não informado)";
+      lista.push("• " + item.nome + " — Departamento: " + depto);
+    });
   }
   return lista;
 }
@@ -634,7 +641,11 @@ function bhMostrarSucesso(avisos) {
       var p = document.createElement("p");
       p.className = "text-secondary";
       p.style.fontSize = "var(--fs-xs)";
-      p.textContent = "• " + texto;
+      // Linhas de detalhe (uma por funcionário) já vêm com "• " embutido —
+      // evita duplicar o marcador ("• • Nome...").
+      var jaTemMarcador = texto.indexOf("• ") === 0;
+      p.style.margin = jaTemMarcador ? "0 0 0 var(--space-3)" : "0";
+      p.textContent = (jaTemMarcador ? "" : "• ") + texto;
       els.successWarningList.appendChild(p);
     });
   }
@@ -698,7 +709,7 @@ function pcInitBancoHoras() {
     // avisos já computados durante o processamento; recuperamos a contagem
     // a partir dos textos já renderizados na prévia para manter uma única
     // fonte de verdade simples, sem estado global adicional.
-    var avisos = bhUltimosAvisos || { testeRemovidas: 0, cpfInvalidoRemovidas: 0, setorNaoIdentificado: 0 };
+    var avisos = bhUltimosAvisos || { testeRemovidas: 0, cpfInvalidoRemovidas: 0, setorNaoIdentificado: 0, setorNaoIdentificadoDetalhes: [] };
     bhMostrarSucesso(avisos);
   });
 
