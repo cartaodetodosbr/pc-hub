@@ -7,6 +7,7 @@
    Rotas que caem em "view-em-breve" recebem título/texto próprios. */
 var PC_ROUTES = {
   "inicio": { view: "view-inicio" },
+  "paineis": { view: "view-paineis" },
   "ferramentas/banco-horas": { view: "view-banco-horas" },
   "indicadores": {
     view: "view-em-breve",

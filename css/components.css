@@ -1072,6 +1072,196 @@
   font-size: var(--fs-md);
 }
 
+/* ---- Painéis P&C Hub (central de acesso aos painéis Power BI) ---------------------
+   Fonte dos dados: data/paineis.json, lido por js/paineis.js. Reaproveita as
+   mesmas cores de destaque (--accent) e o mesmo padrão de card/botão já usados
+   em .quick-card, sem introduzir um tema novo.
+   ---------------------------------------------------------------------------------- */
+.paineis-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.paineis-toolbar__search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1 1 260px;
+  min-width: 220px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-3);
+  color: var(--color-text-muted);
+}
+
+.paineis-toolbar__search:focus-within {
+  border-color: var(--color-teal);
+}
+
+.paineis-toolbar__search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  font-size: var(--fs-sm);
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background: transparent;
+}
+
+.paineis-toolbar__select {
+  flex: 0 0 auto;
+  padding: 10px var(--space-3);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+}
+
+.paineis-toolbar__counter {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.paineis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+.painel-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.painel-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-border-strong);
+}
+
+.painel-card--teal   { --accent: var(--color-teal);   --accent-light: var(--color-teal-light); }
+.painel-card--orange { --accent: var(--color-orange); --accent-light: var(--color-orange-light); }
+.painel-card--purple { --accent: var(--color-purple); --accent-light: var(--color-purple-light); }
+.painel-card--pink   { --accent: var(--color-pink);   --accent-light: var(--color-pink-light); }
+
+.painel-card__thumb {
+  position: relative;
+  height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent-light, var(--color-teal-light)) 0%, #ffffff 100%);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.painel-card__thumb-ghost {
+  position: absolute;
+  right: -14px;
+  bottom: -14px;
+  width: 96px;
+  height: 96px;
+  color: var(--accent, var(--color-teal));
+  opacity: 0.14;
+}
+
+.painel-card__thumb-icon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent, var(--color-teal));
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.painel-card__thumb-icon .icon { width: 24px; height: 24px; }
+
+.painel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  flex: 1;
+}
+
+.painel-card__area {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.painel-card__area-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent, var(--color-teal));
+  flex-shrink: 0;
+}
+
+.painel-card__title {
+  font-size: var(--fs-md);
+  margin: 0;
+}
+
+.painel-card__text {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  flex: 1;
+}
+
+.painel-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--accent, var(--color-teal));
+  margin-top: var(--space-2);
+}
+
+.paineis-empty {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+  padding: var(--space-10) 0;
+}
+
+@media (max-width: 767px) {
+  .paineis-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .paineis-toolbar__counter {
+    margin-left: 0;
+  }
+}
+
 /* ---- Painéis internos do Conversor de Banco de Horas (troca de estado) -------------- */
 .bh-panel {
   display: none;

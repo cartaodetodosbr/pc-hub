@@ -6,9 +6,10 @@ Portal de ferramentas e facilidades do time de Pessoas & Cultura da TODOS Empree
 
 - Layout completo e navegável: cabeçalho, menu lateral, faixas coloridas institucionais.
 - Home pensada como o ambiente de trabalho do próprio time de P&C (não um portal de atendimento ao colaborador): banner de boas-vindas, cards de acesso rápido organizados por módulo (Nosso Dia, Indicadores, Ferramentas, Projetos/Iniciativas, Documentos/Materiais, QIA), um bloco "Nossos Pilares" e destaque para a ferramenta funcional.
-- Menu lateral com Início, Ferramentas (Banco de Horas, Calculadoras, Modelos e Templates, Guia Rápido), Indicadores, Documentos, Automações e Ajuda — as seções ainda não construídas mostram uma tela "Em breve".
+- Menu lateral com Início, Painéis, Ferramentas (Banco de Horas, Calculadoras, Modelos e Templates, Guia Rápido), Indicadores, Documentos, Automações e Ajuda — as seções ainda não construídas mostram uma tela "Em breve".
 - **Conversor de Banco de Horas totalmente funcional**: upload (arrastar/soltar ou selecionar, múltiplos arquivos/meses de uma vez), processamento e validação, prévia do resultado convertido e download do CSV pronto para o Power BI — tudo processado localmente no navegador, sem envio de dados a nenhum servidor.
 - **Aniversariantes do mês, na Home**: identifica o mês atual automaticamente e lista quem faz aniversário nele (ordenado por dia), além de destacar o próximo aniversário do time. Os dados vêm de `data/aniversariantes.json` — para atualizar quem faz aniversário quando alguém entra, sai ou muda a data, basta editar esse arquivo, sem tocar em HTML/CSS/JS.
+- **Painéis**: página nova, funcional, reunindo os 13 painéis Power BI já em produção do time de P&C em uma central de acesso — busca por nome, filtro por área/pilar, contador de painéis, e cards que abrem cada painel em nova aba. Os dados vêm de `data/paineis.json` — para adicionar, remover ou editar um painel, basta editar esse arquivo.
 - Responsivo: desktop grande, notebook, tablet e celular (menu lateral vira off-canvas em telas menores).
 
 ## Estrutura de pastas
@@ -27,9 +28,11 @@ pc-hub/
 │   ├── navigation.js          → roteamento por hash e menu lateral
 │   ├── banco-horas.js         → lógica completa do Conversor de Banco de Horas
 │   ├── aniversariantes.js     → lê data/aniversariantes.json e monta a seção "Aniversariantes do mês" da Home
+│   ├── paineis.js              → lê data/paineis.json e monta a página "Painéis" (grade de cards, busca, filtro e contador)
 │   └── vendor/papaparse.min.js → biblioteca PapaParse (MIT), hospedada localmente
 ├── data/
-│   └── aniversariantes.json   → lista de nome + data de aniversário (DD/MM) — única fonte de dados da seção
+│   ├── aniversariantes.json   → lista de nome + data de aniversário (DD/MM) — única fonte de dados da seção
+│   └── paineis.json           → lista dos painéis Power BI (nome, área/pilar, descrição, link, ícone) — única fonte de dados da página Painéis
 ├── assets/
 │   ├── logos/                 → logo TODOS Empreendimentos, logo Pessoas e Cultura
 │   ├── mascot/                → mascote oficial (coruja "Pessoas e Cultura") usada no banner da Home, no rodapé do menu e nas telas "Em breve"; e QIA em glow, reservada para uso pontual
@@ -106,6 +109,29 @@ Para atualizar (alguém novo no time, mudança de data, etc.), basta editar `dat
 
 ```json
 { "nome": "Nome da pessoa", "aniversario": "DD/MM" }
+```
+
+## Painéis — como funciona
+
+A página fica disponível pelo menu lateral ("Painéis") e segue o mesmo padrão das demais seções orientadas a dados: `data/paineis.json → js/paineis.js → página visual`.
+
+1. Cada painel no JSON tem `nome`, `categoria` (usada no filtro por área/pilar), `areaLabel` (o texto completo exibido no card, ex.: "DHO / Cultura & Clima"), `descricao`, `link` (URL do Power BI) e `icon` (id de um ícone do sprite SVG do `index.html`, usado na composição visual do card — nenhuma imagem externa é carregada).
+2. A busca (por nome, ignorando acentos e caixa) e o filtro por categoria funcionam em conjunto e filtram os cards instantaneamente, sem recarregar a página.
+3. O contador no topo mostra "13 painéis disponíveis" por padrão, e passa a mostrar "X de 13 painéis encontrados" quando a busca ou o filtro reduzem o resultado.
+4. Cada card é inteiramente clicável (além do texto "Acessar painel") e abre o link do Power BI em uma nova aba (`target="_blank"`) — nenhum painel é incorporado por iframe dentro do Hub.
+5. A cor de destaque de cada card vem da categoria (mapeamento em `PN_COR_POR_CATEGORIA`, no topo de `js/paineis.js`), reaproveitando as 4 cores já usadas em outros cards do Hub — é só um indicador visual discreto, sem introduzir cores novas na identidade.
+
+Para adicionar, remover, renomear ou trocar o link de um painel no futuro, basta editar `data/paineis.json` — nenhum outro arquivo precisa mudar. Para usar um ícone diferente em um card, escolha outro `id` já existente no sprite SVG do `index.html` (ou adicione um novo `<symbol>` lá) e referencie esse id no campo `icon` do painel.
+
+```json
+{
+  "nome": "Nome do painel",
+  "categoria": "Categoria usada no filtro",
+  "areaLabel": "Texto de área/pilar exibido no card",
+  "descricao": "Descrição objetiva do painel.",
+  "link": "https://app.powerbi.com/links/...",
+  "icon": "icon-bar-chart"
+}
 ```
 
 ## Próximos passos sugeridos

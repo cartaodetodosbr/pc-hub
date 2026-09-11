@@ -1,0 +1,119 @@
+[
+  {
+    "id": "censo-todos-2026",
+    "nome": "Censo TODOS 2026",
+    "categoria": "Pessoas & Cultura",
+    "areaLabel": "Pessoas & Cultura / Cultura",
+    "descricao": "Perfil, características e percepções da nossa gente, apoiando a compreensão do nosso cenário organizacional.",
+    "link": "https://app.powerbi.com/links/0Os5g9Nteo?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-users"
+  },
+  {
+    "id": "todos-de-bike",
+    "nome": "TODOS DE BIKE",
+    "categoria": "Pessoas & Cultura",
+    "areaLabel": "Pessoas & Cultura / Campanhas",
+    "descricao": "Acompanhamento da participação e dos principais resultados da iniciativa Todos de Bike.",
+    "link": "https://app.powerbi.com/links/zi-_pWkKMC?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-bike"
+  },
+  {
+    "id": "cultura-e-clima",
+    "nome": "Cultura e Clima",
+    "categoria": "DHO",
+    "areaLabel": "DHO / Cultura & Clima",
+    "descricao": "Acompanhamento dos indicadores de clima, engajamento e percepção das pessoas.",
+    "link": "https://app.powerbi.com/links/Zevy2IoRio?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-heart"
+  },
+  {
+    "id": "eventos",
+    "nome": "Eventos",
+    "categoria": "Pessoas & Cultura",
+    "areaLabel": "Pessoas & Cultura / Eventos",
+    "descricao": "Acompanhamento dos eventos de P&C, participação, indicadores e resultados das iniciativas.",
+    "link": "https://app.powerbi.com/links/KnCW7Q7imS?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-calendar"
+  },
+  {
+    "id": "acompanhamento-respostas-pepo",
+    "nome": "Acompanhamento das Respostas PEPO",
+    "categoria": "DHO",
+    "areaLabel": "DHO / Performance",
+    "descricao": "Acompanhamento da adesão e evolução das respostas do ciclo de avaliação PEPO.",
+    "link": "https://app.powerbi.com/links/5ohv6F8AeD?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-clipboard-check"
+  },
+  {
+    "id": "adm-pessoal-visao-geral-banco-horas",
+    "nome": "ADM Pessoal — Visão Geral e Banco de Horas",
+    "categoria": "Administração de Pessoal",
+    "areaLabel": "Administração de Pessoal",
+    "descricao": "Visão dos principais indicadores de Administração de Pessoal e acompanhamento do banco de horas.",
+    "link": "https://app.powerbi.com/links/ong0QKvhWb?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-briefcase"
+  },
+  {
+    "id": "adm-pessoal-turnover-movimentacoes-perfil",
+    "nome": "ADM Pessoal — Turnover, Movimentações e Perfil",
+    "categoria": "Administração de Pessoal",
+    "areaLabel": "Administração de Pessoal",
+    "descricao": "Análise das movimentações, turnover e perfil do quadro de colaboradores.",
+    "link": "https://app.powerbi.com/links/ugSgfwy4Hv?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-trending-up"
+  },
+  {
+    "id": "data-informed",
+    "nome": "Data Informed",
+    "categoria": "Pessoas & Cultura",
+    "areaLabel": "Pessoas & Cultura / Analytics",
+    "descricao": "Visão integrada de dados e indicadores para apoiar análises e decisões de P&C.",
+    "link": "https://app.powerbi.com/links/qSqx8m5kTz?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-database"
+  },
+  {
+    "id": "fit-cultural",
+    "nome": "Fit Cultural",
+    "categoria": "Recrutamento & Seleção",
+    "areaLabel": "Recrutamento & Seleção / Cultura",
+    "descricao": "Acompanhamento dos indicadores relacionados ao fit cultural e aderência ao perfil desejado.",
+    "link": "https://app.powerbi.com/links/kbMIOMHeCj?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-target"
+  },
+  {
+    "id": "pepo-2026-9box",
+    "nome": "PEPO 2026 — 9Box",
+    "categoria": "DHO",
+    "areaLabel": "DHO / Performance & Talentos",
+    "descricao": "Análise de desempenho e potencial, apoiando a identificação e gestão de talentos.",
+    "link": "https://app.powerbi.com/links/6s1WRZwsk-?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-grid"
+  },
+  {
+    "id": "estrutura-de-franquias",
+    "nome": "Estrutura de Franquias",
+    "categoria": "Negócio",
+    "areaLabel": "Negócio / Estrutura Organizacional",
+    "descricao": "Visão da estrutura de franquias e informações relevantes para acompanhamento do negócio.",
+    "link": "https://app.powerbi.com/links/rZLsi6MCO0?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-building"
+  },
+  {
+    "id": "rs-detalhamento-de-vagas",
+    "nome": "R&S — Detalhamento de Vagas",
+    "categoria": "Recrutamento & Seleção",
+    "areaLabel": "Recrutamento & Seleção",
+    "descricao": "Acompanhamento detalhado das vagas, status, prazos e indicadores do processo seletivo.",
+    "link": "https://app.powerbi.com/links/lTIzsX3BHG?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-search"
+  },
+  {
+    "id": "dor-movimentacoes-sla",
+    "nome": "DO&R — Movimentações e SLA",
+    "categoria": "Desenvolvimento Organizacional & Remuneração",
+    "areaLabel": "Desenvolvimento Organizacional & Remuneração",
+    "descricao": "Acompanhamento das movimentações e dos SLAs relacionados às demandas de DO&R.",
+    "link": "https://app.powerbi.com/links/sUH95SEx6g?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-shuffle"
+  }
+]
