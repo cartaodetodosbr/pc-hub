@@ -216,22 +216,28 @@ function okAbrirDetalhe(no) {
   if (!painel) return;
   var status = okStatusDoProgresso(no.progresso);
 
-  var camposConfirmados =
+  var campos =
     '<dt>Tipo</dt><dd>' + OK_TIPO_LABEL[no.tipo] + "</dd>" +
     '<dt>Progresso</dt><dd>' + okFormatarProgresso(no.progresso) + "</dd>" +
-    '<dt>Status (calculado)</dt><dd>' + status.label + "</dd>" +
+    '<dt>Status</dt><dd>' + status.label + "</dd>" +
     '<dt>Área</dt><dd>' + (no.area || "—") + "</dd>" +
     '<dt>Período</dt><dd>' + (no.periodo ? okFormatarData(no.periodo) : "—") + "</dd>";
 
-  if (no.meta) camposConfirmados += '<dt>Meta / resultado</dt><dd>' + no.meta + "</dd>";
+  if (no.meta) campos += '<dt>Meta / resultado</dt><dd>' + no.meta + "</dd>";
   if (typeof no.progressoMediaKpis === "number") {
-    camposConfirmados += '<dt>Média dos KPIs filhos</dt><dd>' + okFormatarProgresso(no.progressoMediaKpis) + "</dd>";
+    campos +=
+      '<dt>Média dos KPIs filhos ' +
+        '<button type="button" class="okr-info okr-info--inline" data-tooltip="A Qulture consolida o progresso do KR e a média dos KPIs filhos de formas diferentes — por isso os dois números aparecem aqui." aria-label="Por que dois números?">' +
+          '<svg class="icon icon--sm"><use href="#icon-info"></use></svg>' +
+        "</button>" +
+      "</dt><dd>" + okFormatarProgresso(no.progressoMediaKpis) + "</dd>";
   }
 
-  var naoDisponivel = ["Responsável", "Contribuintes", "Ciclo", "Peso", "Meta inicial/final", "Comentários", "Tarefas relacionadas", "Histórico de atualização"];
-  var naoDisponivelHtml = naoDisponivel.map(function (campo) {
-    return '<dt>' + campo + '</dt><dd class="text-muted">Não disponível nesta versão</dd>';
-  }).join("");
+  var onePageHtml = no.onePage
+    ? '<a class="okr-detalhe__link" href="#one-pages" data-okr-onepage=\'' + JSON.stringify(no.onePage) + "'>" +
+        "Ver no One Page de " + no.onePage.mesLabel + ' <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg>' +
+      "</a>"
+    : "";
 
   painel.innerHTML =
     '<div class="okr-detalhe__header">' +
@@ -239,12 +245,20 @@ function okAbrirDetalhe(no) {
       '<button type="button" class="btn btn--ghost btn--sm" id="okrs-detalhe-fechar"><svg class="icon icon--sm"><use href="#icon-close"></use></svg></button>' +
     "</div>" +
     '<h3 class="okr-detalhe__titulo">' + no.nome + "</h3>" +
-    (no.observacao ? '<p class="okr-detalhe__observacao"><svg class="icon icon--sm"><use href="#icon-alert-triangle"></use></svg>' + no.observacao + "</p>" : "") +
-    '<dl class="okr-detalhe__campos">' + camposConfirmados + naoDisponivelHtml + "</dl>";
+    '<dl class="okr-detalhe__campos">' + campos + "</dl>" +
+    (no.observacao ? '<p class="okr-detalhe__nota">' + no.observacao + "</p>" : "") +
+    onePageHtml;
 
   painel.hidden = false;
   var fecharBtn = document.getElementById("okrs-detalhe-fechar");
   if (fecharBtn) fecharBtn.addEventListener("click", function () { painel.hidden = true; });
+
+  var onePageLink = painel.querySelector("[data-okr-onepage]");
+  if (onePageLink) {
+    onePageLink.addEventListener("click", function () {
+      opSelecaoPendente = JSON.parse(onePageLink.getAttribute("data-okr-onepage"));
+    });
+  }
 }
 
 /* ---- Filtros (busca por nome + tipo + faixa de status) ------------------ */
@@ -395,7 +409,7 @@ function pcInitOkrs() {
       var cicloEl = document.getElementById("okrs-ciclo-atual");
       if (cicloEl) cicloEl.textContent = dados.ciclo || "Ciclo atual";
       var atualizadoEl = document.getElementById("okrs-atualizado-em");
-      if (atualizadoEl) atualizadoEl.textContent = dados.atualizadoEm ? "Dados de " + okFormatarData(dados.atualizadoEm) : "";
+      if (atualizadoEl) atualizadoEl.textContent = dados.atualizadoEm ? "Atualizado em " + okFormatarData(dados.atualizadoEm) : "";
 
       okPopularFiltroTipo();
       okRenderizarStats(okCalcularStats(dados));

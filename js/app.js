@@ -7,4 +7,5 @@ document.addEventListener("DOMContentLoaded", function () {
   pcInitAniversariantes();
   pcInitPaineis();
   pcInitOkrs();
+  pcInitOnePages();
 });

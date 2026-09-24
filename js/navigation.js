@@ -9,6 +9,7 @@ var PC_ROUTES = {
   "inicio": { view: "view-inicio" },
   "paineis": { view: "view-paineis" },
   "okrs-metas": { view: "view-okrs" },
+  "one-pages": { view: "view-one-pages" },
   "ferramentas/banco-horas": { view: "view-banco-horas" },
   "indicadores": {
     view: "view-em-breve",

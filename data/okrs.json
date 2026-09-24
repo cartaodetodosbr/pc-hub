@@ -20,6 +20,7 @@
           "progresso": 66,
           "observacao": "O relatório também mostra este KR com progresso próprio de 71,3% (média dos 6 KPIs abaixo) — mantivemos os dois números visíveis no detalhe do KR em vez de escolher um.",
           "progressoMediaKpis": 71.3,
+          "onePage": { "ano": 2026, "mes": "agosto", "mesLabel": "Agosto/2026", "arquivo": "assets/onepages/2026/agosto/kr1-formacao-liderancas.pdf" },
           "filhos": [
             { "id": "kpi-1-1-1", "tipo": "kpi", "nome": "Atingir 100% das lideranças (heads) das UDN's formados em Liderança Facilitadora", "progresso": 43, "filhos": [] },
             { "id": "kpi-1-1-2", "tipo": "kpi", "nome": "Atingir 100% das lideranças (heads) das UDN's formadas em Facilitadora em Ação (apenas para líderes que concluíram Liderança Facilitadora até dez/2024)", "progresso": 100, "filhos": [] },
@@ -37,6 +38,7 @@
           "periodo": null,
           "progresso": 100,
           "observacao": "O KPI abaixo superou a meta (133,3%); o relatório mostra o KR travado em 100% no resumo do objetivo.",
+          "onePage": { "ano": 2026, "mes": "agosto", "mesLabel": "Agosto/2026", "arquivo": "assets/onepages/2026/agosto/kr2-maturidade-digital.pdf" },
           "filhos": [
             { "id": "kpi-1-2-1", "tipo": "kpi", "nome": "KPI - Dimensão Dados", "progresso": 133.3, "meta": "100% de 75%", "filhos": [] }
           ]
@@ -50,6 +52,7 @@
           "progresso": 100,
           "meta": "9,66 Nível de Entropia de 9,66 Nível de Entropia",
           "observacao": "O relatório também traz um grupo de KPIs de Cargos e Salários (Franquias/UDNs/GPTW) sob um \"KR 1.3\" — não fica claro se é o mesmo KR ou outro com numeração coincidente. Mantivemos os dois grupos separados.",
+          "onePage": { "ano": 2026, "mes": "agosto", "mesLabel": "Agosto/2026", "arquivo": "assets/onepages/2026/agosto/kr3-cargos-salarios-gptw.pdf" },
           "filhos": [
             { "id": "kpi-1-3-1", "tipo": "kpi", "nome": "KPI - Franquias - Ter 100% das Franquias CDT com Plano de Cargos e Salários implantado", "progresso": 58.9, "filhos": [] },
             { "id": "kpi-1-3-2", "tipo": "kpi", "nome": "KPI - UDNs - Ter 100% das UDNs com metodologia padronizada para gestão de Cargo e Salários", "progresso": 75, "filhos": [] },

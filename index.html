@@ -198,6 +198,11 @@
       <path d="M16.5 3l3 3-3 3"/>
       <path d="M16.5 15l3 3-3 3"/>
     </symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle>
+      <line x1="12" y1="11" x2="12" y2="16.5"></line>
+      <circle cx="12" cy="7.5" r="0.6" fill="currentColor" stroke="none"></circle>
+    </symbol>
     <symbol id="icon-flag" viewBox="0 0 24 24">
       <path d="M5 21V4"/>
       <path d="M5 4h13l-3 4.5L18 13H5"/>
@@ -263,6 +268,11 @@
         <a href="#okrs-metas" class="nav-item" data-nav="okrs-metas">
           <svg class="icon"><use href="#icon-flag"></use></svg>
           OKRs &amp; Metas
+        </a>
+
+        <a href="#one-pages" class="nav-item" data-nav="one-pages">
+          <svg class="icon"><use href="#icon-file-text"></use></svg>
+          One Pages
         </a>
 
         <p class="app-sidebar__section-label">Ferramentas</p>
@@ -665,15 +675,16 @@
           <p>Nosso ciclo de estratégia e execução.</p>
         </div>
 
-        <div class="okr-aviso">
-          <svg class="icon icon--sm"><use href="#icon-alert-triangle"></use></svg>
-          <div>
-            <p class="okr-aviso__titulo">Versão 1 — somente consulta</p>
-            <p class="okr-aviso__texto">Os dados abaixo foram transcritos manualmente dos relatórios da Qulture.Rocks (fonte oficial). Nada aqui é criado, editado ou apagado na Qulture — e o campo "Status" é calculado a partir do progresso, não é nativo da plataforma. <span id="okrs-atualizado-em"></span></p>
-          </div>
-        </div>
-
         <div class="okr-stats" id="okrs-stats"></div>
+
+        <p class="okr-fonte">
+          <span>Fonte: Qulture.Rocks</span>
+          <span class="okr-fonte__separador" aria-hidden="true">·</span>
+          <span id="okrs-atualizado-em"></span>
+          <button type="button" class="okr-info" data-tooltip="O status (Concluído, Em andamento, Atenção, Crítico) é calculado aqui a partir do progresso de cada item — não é um campo nativo da Qulture.Rocks." aria-label="Como o status é calculado">
+            <svg class="icon icon--sm"><use href="#icon-info"></use></svg>
+          </button>
+        </p>
 
         <div class="okr-toolbar">
           <label class="okr-toolbar__search">
@@ -722,6 +733,45 @@
         </div>
       </section>
 
+      <!-- ================= ONE PAGES (acervo mensal) ================= -->
+      <section id="view-one-pages" class="view" aria-labelledby="op-heading">
+        <div class="page-heading">
+          <span class="page-heading__eyebrow">
+            <svg class="icon icon--sm"><use href="#icon-file-text"></use></svg> Acervo mensal
+          </span>
+          <h1 id="op-heading">One Pages</h1>
+          <p>Os relatórios mensais de P&amp;C, mês a mês.</p>
+        </div>
+
+        <div class="op-toolbar">
+          <label class="op-toolbar__campo">
+            <span>Ano</span>
+            <select id="op-select-ano" aria-label="Selecionar ano"></select>
+          </label>
+          <label class="op-toolbar__campo">
+            <span>Mês</span>
+            <select id="op-select-mes" aria-label="Selecionar mês"></select>
+          </label>
+        </div>
+
+        <div class="op-grid" id="op-grid"></div>
+
+        <div class="op-viewer" id="op-viewer" hidden>
+          <div class="op-viewer__header">
+            <h2 class="op-viewer__titulo" id="op-viewer-titulo"></h2>
+            <div class="op-viewer__acoes">
+              <a class="btn btn--ghost btn--sm" id="op-viewer-baixar" href="#" target="_blank" rel="noopener noreferrer">
+                <svg class="icon icon--sm"><use href="#icon-download"></use></svg> Baixar / abrir em nova aba
+              </a>
+              <button type="button" class="btn btn--ghost btn--sm" id="op-viewer-fechar">
+                <svg class="icon icon--sm"><use href="#icon-close"></use></svg>
+              </button>
+            </div>
+          </div>
+          <iframe id="op-iframe" class="op-viewer__frame" title="Visualizador de One Page"></iframe>
+        </div>
+      </section>
+
       <!-- ================= EM BREVE (genérica) ================= -->
       <section id="view-em-breve" class="view" aria-labelledby="eb-title">
         <div class="empty-state">
@@ -743,6 +793,7 @@
 <script src="js/aniversariantes.js" defer></script>
 <script src="js/paineis.js" defer></script>
 <script src="js/okrs.js" defer></script>
+<script src="js/onepages.js" defer></script>
 <script src="js/app.js" defer></script>
 </body>
 </html>
