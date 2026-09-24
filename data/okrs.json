@@ -1,0 +1,123 @@
+{
+  "ciclo": "Ciclo 2026",
+  "atualizadoEm": "2026-09-24",
+  "fonte": "Prints do relatório da Qulture.Rocks enviados por Regi em 24/09/2026 — dados reais de P&C, transcritos manualmente para esta v1 (consulta apenas).",
+  "nos": [
+    {
+      "id": "okr-lideranca",
+      "tipo": "objetivo",
+      "nome": "OKR Liderança: Garantir que 100% das lideranças se tornem agentes de transformação digital, promovendo e consolidando uma cultura muito forte e saudável.",
+      "area": null,
+      "periodo": null,
+      "progresso": 88.7,
+      "filhos": [
+        {
+          "id": "kr-1-1",
+          "tipo": "kr",
+          "nome": "KR 1.1: Atingir 100% das lideranças do grupo com a formações-chave concluídas até o final do ciclo.",
+          "area": null,
+          "periodo": null,
+          "progresso": 66,
+          "observacao": "O relatório também mostra este KR com progresso próprio de 71,3% (média dos 6 KPIs abaixo) — mantivemos os dois números visíveis no detalhe do KR em vez de escolher um.",
+          "progressoMediaKpis": 71.3,
+          "filhos": [
+            { "id": "kpi-1-1-1", "tipo": "kpi", "nome": "Atingir 100% das lideranças (heads) das UDN's formados em Liderança Facilitadora", "progresso": 43, "filhos": [] },
+            { "id": "kpi-1-1-2", "tipo": "kpi", "nome": "Atingir 100% das lideranças (heads) das UDN's formadas em Facilitadora em Ação (apenas para líderes que concluíram Liderança Facilitadora até dez/2024)", "progresso": 100, "filhos": [] },
+            { "id": "kpi-1-1-3", "tipo": "kpi", "nome": "Atingir 100% das lideranças da franqueadora CDT formados em Liderança Transformadora - Assessores", "progresso": 85, "filhos": [] },
+            { "id": "kpi-1-1-4", "tipo": "kpi", "nome": "Atingir 100% das lideranças da franqueadora CDT formados em Liderança Facilitadora (Assessores, superintendentes, diretores regionais e C-levels)", "progresso": 33, "filhos": [] },
+            { "id": "kpi-1-1-5", "tipo": "kpi", "nome": "Atingir 100% das lideranças da franqueadora CDT formados em Liderança Facilitadora em Ação (apenas para líderes que concluíram Liderança Facilitadora até dez/2024)", "progresso": 89, "filhos": [] },
+            { "id": "kpi-1-1-6", "tipo": "kpi", "nome": "Atingir 100% dos Gerentes CDT e AS formados no Liderança Transformadora", "progresso": 78, "filhos": [] }
+          ]
+        },
+        {
+          "id": "kr-1-2",
+          "tipo": "kr",
+          "nome": "KR 1.2: Ter 75% das lideranças formadas com nível \"ativo (=2)\" de liderança transformadora.",
+          "area": null,
+          "periodo": null,
+          "progresso": 100,
+          "observacao": "O KPI abaixo superou a meta (133,3%); o relatório mostra o KR travado em 100% no resumo do objetivo.",
+          "filhos": [
+            { "id": "kpi-1-2-1", "tipo": "kpi", "nome": "KPI - Dimensão Dados", "progresso": 133.3, "meta": "100% de 75%", "filhos": [] }
+          ]
+        },
+        {
+          "id": "kr-1-3",
+          "tipo": "kr",
+          "nome": "KR 1.3: Ter variação máxima positiva de 10% de entropia do 1º ciclo Raiz.",
+          "area": null,
+          "periodo": null,
+          "progresso": 100,
+          "meta": "9,66 Nível de Entropia de 9,66 Nível de Entropia",
+          "observacao": "O relatório também traz um grupo de KPIs de Cargos e Salários (Franquias/UDNs/GPTW) sob um \"KR 1.3\" — não fica claro se é o mesmo KR ou outro com numeração coincidente. Mantivemos os dois grupos separados.",
+          "filhos": [
+            { "id": "kpi-1-3-1", "tipo": "kpi", "nome": "KPI - Franquias - Ter 100% das Franquias CDT com Plano de Cargos e Salários implantado", "progresso": 58.9, "filhos": [] },
+            { "id": "kpi-1-3-2", "tipo": "kpi", "nome": "KPI - UDNs - Ter 100% das UDNs com metodologia padronizada para gestão de Cargo e Salários", "progresso": 75, "filhos": [] },
+            { "id": "kpi-1-3-3", "tipo": "kpi", "nome": "KPI - UDNs | GPTW - Ter 100% das UDNs do Grupo TODOS Internacional certificadas na GPTW", "progresso": 83.3, "filhos": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kr-5-3",
+      "tipo": "kr",
+      "nome": "KR 5.3: Atingir Índice de Efetividade da Governança (IGE) acima de 80%.",
+      "area": "P&C",
+      "periodo": null,
+      "progresso": 34.9,
+      "observacao": "O objetivo-pai deste KR não aparece nos prints recebidos — por isso ele fica listado direto, sem objetivo acima.",
+      "filhos": [
+        { "id": "kpi-pc-eficiencia", "tipo": "kpi", "nome": "(P&C) KPI Eficiência - Demonstrar mais eficiência em treinamento do que em 2025", "progresso": 34.9, "filhos": [] }
+      ]
+    }
+  ],
+  "projetos": [
+    {
+      "id": "ciclos-raiz",
+      "nome": "Ciclos Raiz",
+      "progresso": 0,
+      "entregaveis": [
+        { "nome": "Planejamento para 2º Ciclo RAIZ", "status": "nao_entregue", "prazo": "2026-10-30" },
+        { "nome": "Aplicação e Resultados 2º Ciclo RAIZ", "status": "nao_entregue", "prazo": "2026-12-23" }
+      ]
+    },
+    {
+      "id": "lideranca-que-engaja",
+      "nome": "Liderança que Engaja",
+      "progresso": 100,
+      "entregaveis": [
+        { "nome": "Aplicação de pesquisa em 100% das franquias AS e CDT com Gerentes formados para identificar atitudes que transformam - dados, mobilização e curiosidade", "status": "entregue", "prazo": "2026-06-30" }
+      ]
+    },
+    {
+      "id": "transformacao-digital-mao-na-massa",
+      "nome": "Transformação Digital Mão na Massa",
+      "progresso": 100,
+      "entregaveis": [
+        { "nome": "Identificar 6 projetos propostos por colaboradores que envolvam transformação digital (fatiar por mês/temática) com aplicabilidade", "status": "entregue", "prazo": "2026-06-30" },
+        { "nome": "100% das lideranças das UDNs envolvidas em projetos de transformação digital", "status": "entregue", "prazo": "2026-06-30" }
+      ]
+    },
+    {
+      "id": "gestao-de-mudancas-e-comunicacao",
+      "nome": "Gestão de Mudanças e Comunicação",
+      "progresso": 100,
+      "entregaveis": [
+        { "nome": "100% das UDNs contextualizadas sobre a metodologia ADKAR", "status": "entregue", "prazo": "2026-02-28" },
+        { "nome": "100% das UDNs com plano de ação em prática", "status": "entregue", "prazo": "2026-03-09" },
+        { "nome": "50% dos planos de ação das UDNs concluído", "status": "entregue", "prazo": "2026-06-30" }
+      ]
+    },
+    {
+      "id": "sinergizar-2-0",
+      "nome": "Sinergizar 2.0",
+      "progresso": 75,
+      "entregaveis": [
+        { "nome": "Definição do espaço para a realização", "status": "entregue", "prazo": "2026-01-31" },
+        { "nome": "100% do projeto desenhado e corpo docente", "status": "entregue", "prazo": "2026-02-28" },
+        { "nome": "100% das ementas definidas", "status": "entregue", "prazo": "2026-03-31" },
+        { "nome": "Abertura de inscrições do público alvo", "status": "nao_entregue", "prazo": "2026-09-30" }
+      ]
+    }
+  ]
+}

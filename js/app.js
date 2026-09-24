@@ -6,4 +6,5 @@ document.addEventListener("DOMContentLoaded", function () {
   pcInitBancoHoras();
   pcInitAniversariantes();
   pcInitPaineis();
+  pcInitOkrs();
 });

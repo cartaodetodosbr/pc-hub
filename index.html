@@ -198,6 +198,10 @@
       <path d="M16.5 3l3 3-3 3"/>
       <path d="M16.5 15l3 3-3 3"/>
     </symbol>
+    <symbol id="icon-flag" viewBox="0 0 24 24">
+      <path d="M5 21V4"/>
+      <path d="M5 4h13l-3 4.5L18 13H5"/>
+    </symbol>
     <symbol id="icon-owl" viewBox="0 0 100 100">
       <path d="M20 30 L32 8 L41 27 Z" fill="#0e9b7e" stroke="none"/>
       <path d="M80 30 L68 8 L59 27 Z" fill="#0e9b7e" stroke="none"/>
@@ -254,6 +258,11 @@
         <a href="#paineis" class="nav-item" data-nav="paineis">
           <svg class="icon"><use href="#icon-dashboard"></use></svg>
           Painéis
+        </a>
+
+        <a href="#okrs-metas" class="nav-item" data-nav="okrs-metas">
+          <svg class="icon"><use href="#icon-flag"></use></svg>
+          OKRs &amp; Metas
         </a>
 
         <p class="app-sidebar__section-label">Ferramentas</p>
@@ -646,6 +655,73 @@
         </template>
       </section>
 
+      <!-- ================= OKRs & METAS ================= -->
+      <section id="view-okrs" class="view" aria-labelledby="okrs-heading">
+        <div class="page-heading">
+          <span class="page-heading__eyebrow">
+            <svg class="icon icon--sm"><use href="#icon-flag"></use></svg> <span id="okrs-ciclo-atual">Ciclo atual</span>
+          </span>
+          <h1 id="okrs-heading">OKRs &amp; Metas</h1>
+          <p>Nosso ciclo de estratégia e execução.</p>
+        </div>
+
+        <div class="okr-aviso">
+          <svg class="icon icon--sm"><use href="#icon-alert-triangle"></use></svg>
+          <div>
+            <p class="okr-aviso__titulo">Versão 1 — somente consulta</p>
+            <p class="okr-aviso__texto">Os dados abaixo foram transcritos manualmente dos relatórios da Qulture.Rocks (fonte oficial). Nada aqui é criado, editado ou apagado na Qulture — e o campo "Status" é calculado a partir do progresso, não é nativo da plataforma. <span id="okrs-atualizado-em"></span></p>
+          </div>
+        </div>
+
+        <div class="okr-stats" id="okrs-stats"></div>
+
+        <div class="okr-toolbar">
+          <label class="okr-toolbar__search">
+            <svg class="icon icon--sm"><use href="#icon-search"></use></svg>
+            <input type="search" id="okrs-busca" placeholder="Buscar por nome…" aria-label="Buscar objetivo, KR ou KPI pelo nome">
+          </label>
+          <select id="okrs-filtro-tipo" class="okr-toolbar__select" aria-label="Filtrar por tipo">
+            <option value="">Todos os tipos</option>
+          </select>
+          <select id="okrs-filtro-status" class="okr-toolbar__select" aria-label="Filtrar por status">
+            <option value="">Todos os status</option>
+            <option value="Concluído">Concluído</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Atenção">Atenção</option>
+            <option value="Crítico">Crítico</option>
+          </select>
+        </div>
+
+        <div class="okr-tabs" role="tablist">
+          <button type="button" class="okr-tabs__btn is-active" data-okr-aba="lista" role="tab">Lista</button>
+          <button type="button" class="okr-tabs__btn" data-okr-aba="mapa" role="tab">Mapa estratégico</button>
+          <button type="button" class="okr-tabs__btn" data-okr-aba="projetos" role="tab">Projetos</button>
+        </div>
+
+        <div class="okr-conteudo">
+          <div class="okr-conteudo__principal">
+            <div data-okr-aba-painel="lista">
+              <div class="okr-lista-cabecalho" aria-hidden="true">
+                <span></span><span>Item / Tipo</span><span>Área</span><span>Progresso</span><span>Status</span><span>Período</span>
+              </div>
+              <div id="okrs-lista"></div>
+            </div>
+
+            <div data-okr-aba-painel="mapa" hidden>
+              <p class="text-muted" style="font-size:var(--fs-xs);">Visão em árvore da mesma hierarquia da lista — Objetivo → KR → KPI. Clique numa caixa para ver o detalhe.</p>
+              <div class="okr-mapa" id="okrs-mapa"></div>
+            </div>
+
+            <div data-okr-aba-painel="projetos" hidden>
+              <p class="text-muted" style="font-size:var(--fs-xs);">Projetos e entregáveis também vindos do relatório da Qulture.Rocks — o vínculo com um Objetivo/KR específico não veio confirmado, por isso aparecem à parte.</p>
+              <div class="okr-projetos" id="okrs-projetos"></div>
+            </div>
+          </div>
+
+          <aside class="okr-detalhe" id="okrs-detalhe" hidden></aside>
+        </div>
+      </section>
+
       <!-- ================= EM BREVE (genérica) ================= -->
       <section id="view-em-breve" class="view" aria-labelledby="eb-title">
         <div class="empty-state">
@@ -666,6 +742,7 @@
 <script src="js/banco-horas.js" defer></script>
 <script src="js/aniversariantes.js" defer></script>
 <script src="js/paineis.js" defer></script>
+<script src="js/okrs.js" defer></script>
 <script src="js/app.js" defer></script>
 </body>
 </html>
