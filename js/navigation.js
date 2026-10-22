@@ -58,8 +58,18 @@ var PC_ROUTES = {
   },
   "qia": {
     view: "view-em-breve",
-    title: "QIA",
-    text: "Em breve você vai encontrar aqui mais sobre a QIA, nossa assistente de Pessoas & Cultura. Estamos preparando esta funcionalidade."
+    title: "Asas da Qia",
+    text: "Em breve você vai acompanhar aqui o prêmio de reconhecimento Asas da Qia, para quem se destacou no time ao longo do mês. Estamos preparando esta funcionalidade."
+  },
+  "orcamento": {
+    view: "view-em-breve",
+    title: "Orçamento",
+    text: "Em breve você vai acompanhar aqui o orçamento de Pessoas & Cultura. Estamos preparando esta funcionalidade."
+  },
+  "cashback": {
+    view: "view-em-breve",
+    title: "Cashback",
+    text: "Em breve você vai encontrar aqui o programa de cashback do time. Estamos preparando esta funcionalidade."
   }
 };
 

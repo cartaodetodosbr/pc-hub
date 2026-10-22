@@ -45,22 +45,22 @@
     "icon": "icon-clipboard-check"
   },
   {
-    "id": "adm-pessoal-visao-geral-banco-horas",
-    "nome": "ADM Pessoal — Visão Geral e Banco de Horas",
+    "id": "adm-pessoal",
+    "nome": "ADM de Pessoal",
     "categoria": "Administração de Pessoal",
     "areaLabel": "Administração de Pessoal",
-    "descricao": "Visão dos principais indicadores de Administração de Pessoal e acompanhamento do banco de horas.",
+    "descricao": "Visão geral de Administração de Pessoal: banco de horas, turnover, movimentações e perfil do quadro de colaboradores, tudo em um único painel.",
     "link": "https://app.powerbi.com/links/ong0QKvhWb?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
     "icon": "icon-briefcase"
   },
   {
-    "id": "adm-pessoal-turnover-movimentacoes-perfil",
-    "nome": "ADM Pessoal — Turnover, Movimentações e Perfil",
+    "id": "adm-pessoal-sinistralidade",
+    "nome": "ADM de Pessoal — Sinistralidade",
     "categoria": "Administração de Pessoal",
     "areaLabel": "Administração de Pessoal",
-    "descricao": "Análise das movimentações, turnover e perfil do quadro de colaboradores.",
-    "link": "https://app.powerbi.com/links/ugSgfwy4Hv?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
-    "icon": "icon-trending-up"
+    "descricao": "Acompanhamento da sinistralidade do plano de saúde/benefícios do quadro de colaboradores.",
+    "link": "https://app.powerbi.com/links/l9t9iwvFLP?ctid=d7be86d0-66c8-4589-8c27-9cf5f31d3a1d&pbi_source=linkShare",
+    "icon": "icon-shield-check"
   },
   {
     "id": "data-informed",

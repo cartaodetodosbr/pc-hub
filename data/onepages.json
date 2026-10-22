@@ -2,6 +2,18 @@
   "periodos": [
     {
       "ano": 2026,
+      "mesNum": 9,
+      "mes": "setembro",
+      "mesLabel": "Setembro/2026",
+      "itens": [
+        {
+          "titulo": "KR3 — Cargos, Salários, GPTW & Ciclos RAIZ",
+          "arquivo": "assets/onepages/2026/setembro/kr3-cargos-salarios-gptw.pdf"
+        }
+      ]
+    },
+    {
+      "ano": 2026,
       "mesNum": 8,
       "mes": "agosto",
       "mesLabel": "Agosto/2026",
