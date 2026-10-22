@@ -1495,7 +1495,6 @@
 .okr-lista-cabecalho > span:nth-child(3) { flex: 0 0 110px; }
 .okr-lista-cabecalho > span:nth-child(4) { flex: 0 0 150px; }
 .okr-lista-cabecalho > span:nth-child(5) { flex: 0 0 120px; }
-.okr-lista-cabecalho > span:nth-child(6) { flex: 0 0 90px; }
 
 .okr-node__row {
   padding-left: calc(var(--space-3) + var(--okr-indent, 0px));
@@ -1630,13 +1629,6 @@
 .okr-node__status--orange { color: var(--color-orange); }
 .okr-node__status--pink { color: var(--color-pink); }
 .okr-node__status--muted { color: var(--color-text-muted); }
-
-.okr-node__periodo {
-  flex: 0 0 90px;
-  font-size: var(--fs-xs);
-  color: var(--color-text-muted);
-  text-align: right;
-}
 
 .okr-node__filhos {
   border-left: 2px solid var(--color-border);
@@ -1904,9 +1896,6 @@
   }
   .okr-node__area {
     order: 3;
-  }
-  .okr-node__periodo {
-    text-align: left;
   }
 }
 

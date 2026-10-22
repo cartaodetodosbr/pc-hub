@@ -302,8 +302,8 @@
           <span class="nav-item__badge">Em breve</span>
         </a>
 
-        <div class="nav-group is-open" id="nav-group-ferramentas">
-          <button type="button" class="nav-item nav-group__trigger" id="nav-group-ferramentas-trigger" aria-expanded="true" aria-controls="nav-group-ferramentas-children">
+        <div class="nav-group" id="nav-group-ferramentas">
+          <button type="button" class="nav-item nav-group__trigger" id="nav-group-ferramentas-trigger" aria-expanded="false" aria-controls="nav-group-ferramentas-children">
             <svg class="icon"><use href="#icon-tool"></use></svg>
             Ferramentas
             <svg class="icon icon--sm icon--chevron"><use href="#icon-chevron-right"></use></svg>
@@ -381,6 +381,46 @@
         </div>
 
         <div class="quick-links">
+          <a href="#ferramentas/banco-horas" class="quick-card quick-card--teal" data-nav="ferramentas/banco-horas">
+            <span class="quick-card__icon"><svg class="icon"><use href="#icon-tool"></use></svg></span>
+            <h3 class="quick-card__title">Ferramentas</h3>
+            <p class="quick-card__text">Banco de Horas e as próximas ferramentas do time.</p>
+            <div class="quick-card__footer">
+              <span class="quick-card__link">Abrir <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
+              <span class="badge badge--live">Disponível</span>
+            </div>
+          </a>
+
+          <a href="#paineis" class="quick-card quick-card--purple" data-nav="paineis">
+            <span class="quick-card__icon"><svg class="icon"><use href="#icon-dashboard"></use></svg></span>
+            <h3 class="quick-card__title">Painéis</h3>
+            <p class="quick-card__text">Os painéis Power BI de Pessoas &amp; Cultura, em um só lugar.</p>
+            <div class="quick-card__footer">
+              <span class="quick-card__link">Abrir <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
+              <span class="badge badge--live">Disponível</span>
+            </div>
+          </a>
+
+          <a href="#okrs-metas" class="quick-card quick-card--orange" data-nav="okrs-metas">
+            <span class="quick-card__icon"><svg class="icon"><use href="#icon-flag"></use></svg></span>
+            <h3 class="quick-card__title">OKRs &amp; Metas</h3>
+            <p class="quick-card__text">Nosso ciclo de estratégia e execução, com o progresso de cada KR.</p>
+            <div class="quick-card__footer">
+              <span class="quick-card__link">Abrir <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
+              <span class="badge badge--live">Disponível</span>
+            </div>
+          </a>
+
+          <a href="#one-pages" class="quick-card quick-card--pink" data-nav="one-pages">
+            <span class="quick-card__icon"><svg class="icon"><use href="#icon-file-text"></use></svg></span>
+            <h3 class="quick-card__title">One Pages</h3>
+            <p class="quick-card__text">O acervo mensal dos relatórios de P&amp;C, mês a mês.</p>
+            <div class="quick-card__footer">
+              <span class="quick-card__link">Abrir <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
+              <span class="badge badge--live">Disponível</span>
+            </div>
+          </a>
+
           <a href="#nosso-dia" class="quick-card quick-card--pink" data-nav="nosso-dia">
             <span class="quick-card__icon"><svg class="icon"><use href="#icon-sparkles"></use></svg></span>
             <h3 class="quick-card__title">Nosso Dia</h3>
@@ -398,16 +438,6 @@
             <div class="quick-card__footer">
               <span class="quick-card__link">Ver mais <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
               <span class="badge badge--soon">Em breve</span>
-            </div>
-          </a>
-
-          <a href="#ferramentas/banco-horas" class="quick-card quick-card--teal" data-nav="ferramentas/banco-horas">
-            <span class="quick-card__icon"><svg class="icon"><use href="#icon-tool"></use></svg></span>
-            <h3 class="quick-card__title">Ferramentas</h3>
-            <p class="quick-card__text">Banco de Horas e as próximas ferramentas do time.</p>
-            <div class="quick-card__footer">
-              <span class="quick-card__link">Abrir <svg class="icon icon--sm"><use href="#icon-arrow-right"></use></svg></span>
-              <span class="badge badge--live">Disponível</span>
             </div>
           </a>
 
@@ -735,7 +765,7 @@
           <div class="okr-conteudo__principal">
             <div data-okr-aba-painel="lista">
               <div class="okr-lista-cabecalho" aria-hidden="true">
-                <span></span><span>Item / Tipo</span><span>Área</span><span>Progresso</span><span>Status</span><span>Período</span>
+                <span></span><span>Item / Tipo</span><span>Área</span><span>Progresso</span><span>Status</span>
               </div>
               <div id="okrs-lista"></div>
             </div>

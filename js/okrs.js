@@ -162,7 +162,6 @@ function okCriarLinha(no, nivel) {
       '<span class="okr-node__area">' + (no.area || "—") + "</span>" +
       '<span class="okr-node__progresso"><span class="okr-node__progresso-dot okr-node__progresso-dot--' + status.cor + '"></span>' + okFormatarProgresso(no.progresso) + "</span>" +
       '<span class="okr-node__status okr-node__status--' + status.cor + '">' + status.label + "</span>" +
-      '<span class="okr-node__periodo">' + (no.periodo ? okFormatarData(no.periodo) : "—") + "</span>" +
     "</div>";
 
   var wrap = document.createElement("div");
@@ -220,8 +219,7 @@ function okAbrirDetalhe(no) {
     '<dt>Tipo</dt><dd>' + OK_TIPO_LABEL[no.tipo] + "</dd>" +
     '<dt>Progresso</dt><dd>' + okFormatarProgresso(no.progresso) + "</dd>" +
     '<dt>Status</dt><dd>' + status.label + "</dd>" +
-    '<dt>Área</dt><dd>' + (no.area || "—") + "</dd>" +
-    '<dt>Período</dt><dd>' + (no.periodo ? okFormatarData(no.periodo) : "—") + "</dd>";
+    '<dt>Área</dt><dd>' + (no.area || "—") + "</dd>";
 
   if (no.meta) campos += '<dt>Meta / resultado</dt><dd>' + no.meta + "</dd>";
   if (typeof no.progressoMediaKpis === "number") {
