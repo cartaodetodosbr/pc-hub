@@ -1,0 +1,36 @@
+{
+  "periodos": [
+    {
+      "ano": 2026,
+      "mesNum": 9,
+      "mes": "setembro",
+      "mesLabel": "Setembro/2026",
+      "itens": [
+        {
+          "titulo": "KR3 — Cargos, Salários, GPTW & Ciclos RAIZ",
+          "arquivo": "assets/onepages/2026/setembro/kr3-cargos-salarios-gptw.pdf"
+        }
+      ]
+    },
+    {
+      "ano": 2026,
+      "mesNum": 8,
+      "mes": "agosto",
+      "mesLabel": "Agosto/2026",
+      "itens": [
+        {
+          "titulo": "KR1 — Formação de Lideranças",
+          "arquivo": "assets/onepages/2026/agosto/kr1-formacao-liderancas.pdf"
+        },
+        {
+          "titulo": "KR2 — Maturidade Digital e Iniciativas",
+          "arquivo": "assets/onepages/2026/agosto/kr2-maturidade-digital.pdf"
+        },
+        {
+          "titulo": "KR3 — Cargos, Salários, GPTW & Ciclos RAIZ",
+          "arquivo": "assets/onepages/2026/agosto/kr3-cargos-salarios-gptw.pdf"
+        }
+      ]
+    }
+  ]
+}
