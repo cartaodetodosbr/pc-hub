@@ -1,7 +1,7 @@
 {
   "ciclo": "Ciclo 2026",
-  "atualizadoEm": "2026-10-22",
-  "fonte": "Dados reais de P&C transcritos manualmente da Qulture.Rocks — prints enviados por Regi em 24/09/2026, atualizados com novos prints e One Pages em 22/10/2026.",
+  "atualizadoEm": "2026-11-03",
+  "fonte": "Dados reais de P&C transcritos manualmente da Qulture.Rocks — prints enviados por Regi em 24/09/2026, atualizados com novos prints e One Pages em 22/10/2026 e novamente com dados de outubro/2026 (incluindo o início do 2º Ciclo RAIZ) em 03/11/2026.",
   "nos": [
     {
       "id": "okr-lideranca",
@@ -52,15 +52,29 @@
           "periodo": null,
           "progresso": 100,
           "meta": "9,66 Nível de Entropia de 9,66 Nível de Entropia",
-          "observacao": "O relatório também mostra este KR com progresso próprio de 72,4% (média dos 3 KPIs de Cargos e Salários/GPTW abaixo, a forma como a Qulture acompanha operacionalmente este KR) — mantivemos os dois números visíveis no detalhe do KR em vez de escolher um.",
-          "progressoMediaKpis": 72.4,
-          "onePage": { "ano": 2026, "mes": "setembro", "mesLabel": "Setembro/2026", "arquivo": "assets/onepages/2026/setembro/kr3-cargos-salarios-gptw.pdf" },
+          "observacao": "O relatório também mostra este KR com progresso próprio de 72,8% (média dos 3 KPIs de Cargos e Salários/GPTW abaixo, a forma como a Qulture acompanha operacionalmente este KR) — mantivemos os dois números visíveis no detalhe do KR em vez de escolher um. O One Page de outubro/2026 (relatório de diagnóstico RAIZ) detalha o KPI de Franquias em duas frentes de conformidade: 56,24% das franquias e 87,60% dos colaboradores.",
+          "progressoMediaKpis": 72.8,
+          "onePage": { "ano": 2026, "mes": "outubro", "mesLabel": "Outubro/2026", "arquivo": "assets/onepages/2026/outubro/kr3-diagnostico-raiz-outubro.pdf" },
           "filhos": [
-            { "id": "kpi-1-3-1", "tipo": "kpi", "nome": "KPI - Franquias - Ter 100% das Franquias CDT com Plano de Cargos e Salários implantado", "progresso": 58.9, "filhos": [] },
+            { "id": "kpi-1-3-1", "tipo": "kpi", "nome": "KPI - Franquias - Ter 100% das Franquias CDT com Plano de Cargos e Salários implantado", "progresso": 59.95, "filhos": [] },
             { "id": "kpi-1-3-2", "tipo": "kpi", "nome": "KPI - UDNs - Ter 100% das UDNs com metodologia padronizada para gestão de Cargo e Salários", "progresso": 75, "filhos": [] },
             { "id": "kpi-1-3-3", "tipo": "kpi", "nome": "KPI - UDNs | GPTW - Ter 100% das UDNs do Grupo TODOS Internacional certificadas na GPTW", "progresso": 83.3, "filhos": [] }
           ]
         }
+      ]
+    },
+    {
+      "id": "okr-lideranca-ciclo2",
+      "tipo": "objetivo",
+      "nome": "OKR Liderança — 2º Ciclo RAIZ: Garantir que 100% das lideranças se tornem agentes de transformação digital, promovendo e consolidando uma cultura muito forte e saudável.",
+      "area": null,
+      "periodo": null,
+      "progresso": 33.3,
+      "observacao": "Novo ciclo do mesmo OKR Liderança, iniciado na Qulture.Rocks em outubro/2026 e ligado ao projeto Ciclos Raiz (planejamento do 2º Ciclo RAIZ previsto para 30/10/2026, aplicação e resultados para 23/12/2026 — ver aba Projetos). KR 1.1 e KR 1.2 ainda não têm progresso lançado neste novo ciclo; o KR 1.3 herda, por enquanto, o mesmo nível de entropia (9,66) apurado no ciclo anterior, até a próxima aferição.",
+      "filhos": [
+        { "id": "kr-1-1-ciclo2", "tipo": "kr", "nome": "KR 1.1: Atingir 100% das lideranças do grupo com a formações-chave concluídas até o final do ciclo.", "area": null, "periodo": null, "progresso": 0, "filhos": [] },
+        { "id": "kr-1-2-ciclo2", "tipo": "kr", "nome": "KR 1.2: Ter 75% das lideranças formadas com nível \"ativo (=2)\" de liderança transformadora.", "area": null, "periodo": null, "progresso": 0, "filhos": [] },
+        { "id": "kr-1-3-ciclo2", "tipo": "kr", "nome": "KR 1.3: Ter variação máxima positiva de 10% de entropia do 1º ciclo Raiz.", "area": null, "periodo": null, "progresso": 100, "meta": "9,66 Nível de Entropia de 9,66 Nível de Entropia", "filhos": [] }
       ]
     },
     {
